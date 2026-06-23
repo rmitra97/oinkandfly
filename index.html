@@ -210,11 +210,11 @@
 
   <!-- ─── INPUT FORM ─── -->
   <div class="card form-card" id="form-card">
-    <h2 class="card-heading">Tell us your situation</h2>
+    <h2 class="card-heading">So... where are you escaping to? 🌍</h2>
 
     <!-- Travel timing -->
     <div class="field field--full" style="margin-bottom:16px;">
-      <label class="label">When are you planning to travel?</label>
+      <label class="label">When's the escape happening? ✈️</label>
       <div class="timing-chips" id="timing-chips"><!-- built by JS --></div>
     </div>
 
@@ -222,7 +222,7 @@
 
       <!-- Home city — full width -->
       <div class="field field--full">
-        <label class="label" for="home-city">Where are you flying from?</label>
+        <label class="label" for="home-city">Where are you flying out from? 🛫</label>
         <div class="row-pair">
           <div class="select-wrap" style="flex:1">
             <select class="select" id="home-city">
@@ -239,7 +239,7 @@
 
       <!-- Travel scope (domestic vs cross-country) — hidden for European home cities -->
       <div class="field field--full scope-field" id="scope-field">
-        <label class="label">Are you travelling domestic or cross-country?</label>
+        <label class="label">Stay close or go wild? 🗺️</label>
         <div class="scope-btns">
           <button class="scope-btn active" onclick="setScope(this,'anywhere')">
             <svg width="16" height="16" viewBox="0 0 20 20" fill="none" style="display:inline-block;vertical-align:middle;margin-right:5px"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2"/><path d="M10 2 Q14 6 14 10 Q14 14 10 18" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M10 2 Q6 6 6 10 Q6 14 10 18" stroke="currentColor" stroke-width="1.8" fill="none"/><line x1="2" y1="10" x2="18" y2="10" stroke="currentColor" stroke-width="1.8"/><path d="M3 7 Q10 9 17 7" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M3 13 Q10 11 17 13" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
@@ -256,8 +256,8 @@
       <!-- Savings -->
       <div class="field">
         <label class="label" for="savings">
-          Current savings
-          <span class="label-hint">what you have right now</span>
+          Your savings stash 💰
+          <span class="label-hint">what's sitting in your account</span>
         </label>
         <div class="money-wrap">
           <span class="money-sym" id="sym-savings">$</span>
@@ -268,8 +268,8 @@
       <!-- Monthly income -->
       <div class="field">
         <label class="label" for="income">
-          Monthly income
-          <span class="label-hint">0 if not applicable</span>
+          Monthly income 📥
+          <span class="label-hint">leave 0 if between adventures</span>
         </label>
         <div class="money-wrap">
           <span class="money-sym" id="sym-income">$</span>
@@ -280,8 +280,8 @@
       <!-- Monthly essentials -->
       <div class="field">
         <label class="label" for="monthly">
-          Monthly essentials
-          <span class="label-hint">rent, bills, groceries</span>
+          Monthly boring stuff 🏠
+          <span class="label-hint">rent, bills, groceries — the fun killers</span>
         </label>
         <div class="money-wrap">
           <span class="money-sym" id="sym-monthly">$</span>
@@ -292,18 +292,18 @@
       <!-- Days -->
       <div class="field">
         <label class="label" for="days">
-          How many days?
+          How many days of freedom? 🗓️
           <span class="label-bucket" id="days-bucket">Week+</span>
         </label>
         <input class="input" type="number" id="days" min="1" max="30" value="7">
-        <div class="days-hint">1–2 = Weekend · 3–5 = Short trip · 6+ = Week+</div>
+        <div class="days-hint">1–2 = Quick escape · 3–5 = Mini adventure · 6+ = Proper solo trip</div>
       </div>
 
     </div><!-- /form-grid -->
 
     <!-- Travel style picker -->
     <div class="field" style="margin-top:4px;">
-      <label class="label">Travel style</label>
+      <label class="label">How do you roll? 🎒</label>
       <div class="style-grid">
 
         <label class="style-opt">
@@ -319,8 +319,8 @@
                 <circle cx="20" cy="24" r="1.5" fill="currentColor"/>
               </svg>
             </span>
-            <span class="style-name">Budget</span>
-            <span class="style-desc">Hostels, street food, local buses</span>
+            <span class="style-name">Shoestring</span>
+            <span class="style-desc">Dorm beds, street food, night buses</span>
             <span class="style-mult">×0.8 daily costs</span>
           </div>
         </label>
@@ -339,8 +339,8 @@
                 <circle cx="22" cy="30.5" r="1" fill="currentColor"/>
               </svg>
             </span>
-            <span class="style-name">Mid-range</span>
-            <span class="style-desc">3-star hotels, restaurants, taxis</span>
+            <span class="style-name">Comfortable</span>
+            <span class="style-desc">Private rooms, sit-down meals, the odd taxi</span>
             <span class="style-mult">×1.2 daily costs</span>
           </div>
         </label>
@@ -359,8 +359,8 @@
                 <circle cx="35" cy="5"  r="1.2" fill="currentColor"/>
               </svg>
             </span>
-            <span class="style-name">Lavish</span>
-            <span class="style-desc">Luxury hotels, fine dining, spas</span>
+            <span class="style-name">Treat Yourself</span>
+            <span class="style-desc">Boutique hotels, rooftop bars, no regrets</span>
             <span class="style-mult">×1.8 daily costs</span>
           </div>
         </label>
@@ -370,21 +370,21 @@
 
     <!-- Smart allocation recommendation (replaces slider) -->
     <div class="alloc-rec" id="alloc-rec">
-      💡 <strong>How much should you spend on travel?</strong>
-      Spending <strong>20%–40%</strong> of your savings is considered safe for most people.
-      We use <strong>30%</strong> for these estimates.
+      💡 <strong>How much of your stash should you actually spend?</strong>
+      Solo travellers typically feel good spending <strong>20%–40%</strong> of savings on a trip — enough to explore properly without emptying the pot.
+      We use <strong>30%</strong> for these estimates so you can roam freely and still come home to rent money.
       <span id="alloc-range-detail"></span>
     </div>
 
     <!-- Live budget preview -->
     <div class="budget-preview" id="budget-preview">
-      <div class="bp-label">Your estimated travel budget</div>
-      <div class="bp-amount" id="bp-amount">Fill in your numbers above</div>
+      <div class="bp-label">Your adventure fund 🌴</div>
+      <div class="bp-amount" id="bp-amount">Fill in your numbers above to see where you can go</div>
       <div class="bp-formula" id="bp-formula"></div>
     </div>
 
     <button class="find-btn" id="find-btn" onclick="runSearch()" disabled>
-      Find my destinations →
+      Show me where I can go →
     </button>
   </div><!-- /form-card -->
 
@@ -393,8 +393,8 @@
 
 <footer class="site-footer">
   <div class="container">
-    <p>🔒 No sign-up. No tracking. No data ever leaves your browser.</p>
-    <p class="footer-note">Exchange rates: approximate static table (June 2025). Flight estimates use straight-line distance, not real fares.</p>
+    <p>🔒 No sign-up. No tracking. Your numbers stay on your screen, always.</p>
+    <p class="footer-note">Exchange rates: approximate (June 2025). Flight costs are distance-based estimates — real fares will vary. Always check before you book!</p>
   </div>
 </footer>
 
@@ -575,12 +575,12 @@
 <div class="results-outer">
   <div class="results-container">
     <div class="results-topbar">
-      <button class="back-btn" onclick="goBackToForm()">← Back to search</button>
+      <button class="back-btn" onclick="goBackToForm()">← Back to planning</button>
     </div>
     <section id="results-section" class="results-section">
       <div id="results-content"></div>
       <p class="rates-note">
-        ⚠ Exchange rates are approximate (June 2025 mid-market). All flight and cost figures are estimates — always verify before booking.
+        ⚠ These are estimates, not guarantees — real flights and costs will vary. Always double-check before you pack your bag and disappear. ✈️
       </p>
     </section>
   </div>
@@ -588,8 +588,8 @@
 
 <footer class="site-footer">
   <div class="container">
-    <p>🔒 No sign-up. No tracking. No data ever leaves your browser.</p>
-    <p class="footer-note">Exchange rates: approximate static table (June 2025). Flight estimates use straight-line distance, not real fares.</p>
+    <p>🔒 No sign-up. No tracking. Your numbers stay on your screen, always.</p>
+    <p class="footer-note">Exchange rates: approximate (June 2025). Flight costs are distance-based estimates — real fares will vary. Always check before you book!</p>
   </div>
 </footer>
 
@@ -1426,7 +1426,7 @@ function renderResults(v, br, found) {
   html += '<div class="summary-card">'
         +   '<div class="summary-top">'
         +     '<div>'
-        +       '<div class="summary-label">Your travel budget (30% of savings)</div>'
+        +       '<div class="summary-label">Your adventure fund 🌴 (30% of savings)</div>'
         +       '<div class="summary-amount">' + hc(br.travelBudget) + '</div>'
         +       (homeCurrency !== 'USD'
                   ? '<div class="summary-note">≈ ' + fmtCurrency(br.travelBudget,'USD') + ' USD</div>'
@@ -1434,8 +1434,8 @@ function renderResults(v, br, found) {
         +     '</div>'
         +     '<div class="summary-right">'
         +       '<div class="summary-formula">'
-        +         hc(br.effectiveSavings) + ' effective savings × 30% − '
-        +         hc(br.emergencyBuffer) + ' buffer'
+        +         hc(br.effectiveSavings) + ' total pot × 30% − '
+        +         hc(br.emergencyBuffer) + ' safety net'
         +       '</div>'
         +       '<div class="summary-chips">'
         +         chip(v.days + ' days') + chip(bucket)
@@ -1551,20 +1551,20 @@ function renderEmpty(v, br) {
   var tip = '';
   if (cheapest) {
     var gap = cheapest.totalMid - br.travelBudget;
-    tip = '<p class="empty-closest">Closest match: <strong>' + cheapest.city + ', ' + cheapest.country
-        + '</strong> (~' + hc(cheapest.totalMid) + ') — you\'re about <strong>' + hc(gap) + ' short</strong>.</p>';
+    tip = '<p class="empty-closest">Closest possibility: <strong>' + cheapest.city + ', ' + cheapest.country
+        + '</strong> (~' + hc(cheapest.totalMid) + ') — you\'re only <strong>' + hc(gap) + ' away</strong> from making it happen.</p>';
   }
-  tip += '<p class="empty-tips-title">Ways to make it work:</p>'
+  tip += '<p class="empty-tips-title">A few ways to unlock more destinations:</p>'
        + '<ul class="tip-list">'
-       + '<li>Travel for fewer days</li>'
-       + (v.style !== 'budget' ? '<li>Switch to Budget travel style (×0.8 costs)</li>' : '')
-       + (travelScope === 'domestic' ? '<li>Switch to Cross-country to see international destinations</li>' : '')
-       + '<li>Add more savings to your plan</li>'
-       + '<li>If you have income, the 3-month surplus boosts your effective budget</li>'
+       + '<li>Shorten the trip — even 1–2 fewer days opens up new places</li>'
+       + (v.style !== 'budget' ? '<li>Go Shoestring style — hostels + street food = more destinations</li>' : '')
+       + (travelScope === 'domestic' ? '<li>Switch to Cross-country and see the whole world</li>' : '')
+       + '<li>Grow the fund a little more — small savings, big possibilities</li>'
+       + '<li>Have income? The 3-month boost can unlock a lot more</li>'
        + '</ul>';
   return '<div class="empty-state">'
        +   '<div class="empty-icon">🌍</div>'
-       +   '<h3>No destinations fit your budget for ' + v.days + ' day' + (v.days===1?'':'s') + '</h3>'
+       +   '<h3>Not quite there yet for ' + v.days + ' day' + (v.days===1?'':'s') + ' — but you\'re close!</h3>'
        +   tip
        + '</div>';
 }
