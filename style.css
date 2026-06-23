@@ -281,7 +281,7 @@ main,
   font-style: normal;
   display: inline-block;
   transform-origin: center;
-  animation: pig-grunt 8s ease-in-out infinite;
+  animation: pig-grunt 6.5s ease-in-out infinite;
 }
 .header-sub {
   font-size: 0.94rem;
