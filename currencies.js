@@ -113,8 +113,10 @@ const COUNTRY_CURRENCY = {
 
 // Helper: convert a USD amount to a given currency
 function fromUSD(usdAmount, toCurrencyCode) {
-  var rate = CURRENCY_RATES[toCurrencyCode] || 1;
-  return Math.round(usdAmount * rate);
+  var rate = CURRENCY_RATES[toCurrencyCode];
+  if (!rate || !isFinite(rate)) rate = 1;
+  var result = Math.round(usdAmount * rate);
+  return isFinite(result) ? result : 0;
 }
 
 // Helper: format a USD amount as a string in the target currency
@@ -122,6 +124,7 @@ function fmtCurrency(usdAmount, currencyCode) {
   if (!isFinite(usdAmount)) return '—';
   var meta   = CURRENCIES[currencyCode] || CURRENCIES['USD'];
   var amount = fromUSD(usdAmount, currencyCode);
+  if (!isFinite(amount)) return '—';
   return meta.symbol + amount.toLocaleString();
 }
 

@@ -1739,5 +1739,74 @@ document.addEventListener('keydown', function(e){
 buildTimingSection();
 refreshPreview();
 </script>
+
+<!-- ═══════════════════════════ AIRPLANE CURSOR ═══════════════════════════ -->
+<div id="cursor-plane">
+  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Fuselage: points top-right like an arrow cursor -->
+    <path d="M4 24 L22 6" stroke="#1565C0" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Nose tip -->
+    <circle cx="22" cy="6" r="2.5" fill="#1565C0"/>
+    <!-- Wing -->
+    <path d="M22 6 L15 13 L8 18 L12 14 Z" fill="#1565C0" opacity="0.85"/>
+    <!-- Tail fin -->
+    <path d="M4 24 L10 19 L6 23 Z" fill="#1565C0" opacity="0.7"/>
+    <!-- Wing highlight -->
+    <path d="M16 12 L20 8" stroke="white" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+  </svg>
+</div>
+
+<script>
+(function() {
+  var plane   = document.getElementById('cursor-plane');
+  var prevX   = -100, prevY = -100;
+  var dashPool = [];
+  var moveAngle = -45; // default angle (top-right)
+
+  document.addEventListener('mousemove', function(e) {
+    var x = e.clientX, y = e.clientY;
+
+    // Move plane
+    plane.style.left = x + 'px';
+    plane.style.top  = y + 'px';
+
+    // Calculate movement angle for rotation
+    var dx = x - prevX, dy = y - prevY;
+    var dist = Math.sqrt(dx*dx + dy*dy);
+    if (dist > 2) {
+      moveAngle = Math.atan2(dy, dx) * 180 / Math.PI + 45;
+      plane.style.transform = 'translate(-4px,-4px) rotate(' + moveAngle + 'deg)';
+    }
+
+    // Spawn dash every ~10px of movement
+    if (dist > 10) {
+      spawnDash(prevX + dx*0.5, prevY + dy*0.5, moveAngle - 45);
+      prevX = x; prevY = y;
+    }
+  });
+
+  function spawnDash(x, y, angleDeg) {
+    var d = document.createElement('div');
+    d.className = 'cursor-dash';
+    d.style.left      = (x - 3.5) + 'px';
+    d.style.top       = (y - 1.25) + 'px';
+    d.style.transform = 'rotate(' + angleDeg + 'deg)';
+    d.style.opacity   = '0.7';
+    document.body.appendChild(d);
+
+    // Fade out
+    setTimeout(function() { d.style.opacity = '0'; }, 60);
+    // Remove from DOM
+    setTimeout(function() {
+      if (d.parentNode) d.parentNode.removeChild(d);
+    }, 380);
+  }
+
+  // Hide plane when mouse leaves window
+  document.addEventListener('mouseleave', function() {
+    plane.style.left = '-100px';
+  });
+})();
+</script>
 </body>
 </html>
