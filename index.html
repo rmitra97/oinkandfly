@@ -6,7 +6,7 @@
   <title>Oink and Fly</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -253,6 +253,9 @@
         <span class="scope-note" id="scope-note"></span>
       </div>
 
+      <!-- Section divider -->
+      <div class="field--full form-divider">Your money situation</div>
+
       <!-- Savings -->
       <div class="field">
         <label class="label" for="savings">
@@ -302,8 +305,8 @@
     </div><!-- /form-grid -->
 
     <!-- Travel style picker -->
-    <div class="field" style="margin-top:4px;">
-      <label class="label">How do you roll? 🎒</label>
+    <div class="field" style="margin-top:8px;">
+      <label class="label" style="font-size:1rem; margin-bottom:4px;">How do you roll? 🎒</label>
       <div class="style-grid">
 
         <label class="style-opt">
@@ -1502,41 +1505,20 @@ function renderCard(d, v, i) {
 
   return '<div class="dest-card' + (isBest ? ' dest-card--best' : '') + '" onclick="openCityPopup(' + i + ')" title="Click for full details">'
     + '<div class="dc-head">'
-    +   '<div class="dc-left">'
-    +     (isBest ? '<span class="best-badge">★ Best value</span>' : '')
-    +     '<div class="dc-name">' + d.city + '<span class="dc-country">, ' + d.country + '</span></div>'
-    +     '<div class="dc-dist">'
-    +       (noFlight ? '✅ No flight needed' : '✈ ' + d.distanceKm.toLocaleString() + ' km away')
-    +       (showDestCur ? ' · <span class="dest-cur-badge">' + destCur + ' ' + destMeta.symbol + '</span>' : '')
-    +     '</div>'
-    +     '<div class="dc-click-hint">Tap for full details →</div>'
+    +   (isBest ? '<span class="best-badge">★ Best value</span>' : '')
+    +   '<div class="dc-name">' + d.city + '<span class="dc-country">, ' + d.country + '</span></div>'
+    +   '<div class="dc-dist">'
+    +     (noFlight ? '✅ No flight needed' : '✈ ' + d.distanceKm.toLocaleString() + ' km away')
+    +     (showDestCur ? ' · <span class="dest-cur-badge">' + destCur + ' ' + destMeta.symbol + '</span>' : '')
     +   '</div>'
-    +   '<div class="dc-total">'
+    +   '<div class="dc-total-block">'
     +     '<div class="dc-total-lbl">Total estimate</div>'
     +     '<div class="dc-total-val">' + hcRange(d.totalLow, d.totalHigh) + '</div>'
     +     (homeCurrency !== 'USD'
             ? '<div class="dc-total-usd">≈ ' + fmtCurrencyRange(d.totalLow, d.totalHigh, 'USD') + '</div>'
             : '')
     +   '</div>'
-    + '</div>'
-    + '<div class="dc-body">'
-    +   '<div class="dc-row dc-row--flight">'
-    +     '<span class="dc-row-label">✈ Flight (estimate)</span>'
-    +     '<span class="dc-row-val">'
-    +       (noFlight ? 'No flight cost' : dualRange(d.flightLow, d.flightHigh))
-    +     '</span>'
-    +   '</div>'
-    +   '<div class="dc-cats">'
-    +     catRow('🍽','Meals (3×/day)', d.dailyMeals)
-    +     catRow('🛏','Accommodation',  d.dailyAccomm)
-    +     catRow('🎭','Activities',     d.dailyActivities)
-    +     catRow('🛍','Shopping & misc',d.dailyShopping)
-    +   '</div>'
-    +   '<div class="dc-math">'
-    +     (noFlight ? '' : 'Flight ~' + hcRange(d.flightLow, d.flightHigh) + ' + ')
-    +     hc(d.dailyLandCost) + '/day × ' + v.days + ' days'
-    +     (showDestCur ? ' · local spend ≈ ' + fmtCurrency(d.dailyLandCost, destCur) + ' ' + destMeta.symbol + '/day' : '')
-    +   '</div>'
+    +   '<div class="dc-click-hint">Tap to see full breakdown →</div>'
     + '</div>'
   + '</div>';
 }
