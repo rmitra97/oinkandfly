@@ -57,7 +57,7 @@
 
 /* ── Base ── */
 body {
-  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+  font-family: Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.58;
