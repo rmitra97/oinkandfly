@@ -266,7 +266,9 @@ main,
   letter-spacing: 2px;
   line-height: 1.1;
   -webkit-text-stroke: 0.5px rgba(255,100,160,0.3);
+  user-select: none;
 }
+.header-title:hover { opacity: 0.85; transition: opacity 0.15s; }
 @keyframes pig-grunt {
   0%,  100% { transform: scale(0.82) translateY(1px) rotate(0deg); }
   1%         { transform: scale(0.92) translateY(-3px) rotate(-6deg); }
@@ -383,14 +385,16 @@ main,
 /* Money inputs */
 .money-wrap { position: relative; display: flex; align-items: center; }
 .money-sym {
-  position: absolute; left: 16px;
-  font-size: 1rem; font-weight: 700;
+  position: absolute; left: 13px;
+  font-size: 0.95rem; font-weight: 700;
   color: var(--text-md); pointer-events: none; z-index: 1;
+  white-space: nowrap;
 }
-.money-wrap .input { padding-left: 28px; }
+.money-wrap .input { padding-left: 50px; }
 
-/* Days hint */
-.days-hint { font-size: 0.80rem; color: var(--text-sm); margin-top: 4px; }
+/* Days hint + bucket row */
+.days-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 6px; }
+.days-hint { font-size: 0.78rem; color: var(--text-sm); }
 
 /* ── Travel timing chips ── */
 .timing-chips {

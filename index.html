@@ -144,11 +144,19 @@
 
   <!-- Left arm — hanging -->
   <path d="M1115 352 Q1091 396 1087 448 Q1083 474 1089 488" stroke="#8B5E3C" stroke-width="28" stroke-linecap="round" fill="none"/>
-  <circle cx="1089" cy="488" r="16" fill="#7A4A2A"/>
+  <!-- Left hand — palm + 3 fingers pointing down -->
+  <circle cx="1089" cy="488" r="11" fill="#7A4A2A"/>
+  <rect x="1073" y="492" width="10" height="20" rx="5" fill="#7A4A2A"/>
+  <rect x="1085" y="493" width="10" height="21" rx="5" fill="#7A4A2A"/>
+  <rect x="1097" y="492" width="10" height="20" rx="5" fill="#7A4A2A"/>
 
   <!-- Right arm — extended, holding beer -->
   <path d="M1195 352 Q1223 396 1237 442 Q1245 468 1241 488" stroke="#8B5E3C" stroke-width="28" stroke-linecap="round" fill="none"/>
-  <circle cx="1241" cy="488" r="16" fill="#7A4A2A"/>
+  <!-- Right hand — gripping beer bottle, fingers wrap around -->
+  <circle cx="1241" cy="488" r="11" fill="#7A4A2A"/>
+  <rect x="1224" y="472" width="9" height="18" rx="4" fill="#7A4A2A"/>
+  <rect x="1236" y="471" width="9" height="19" rx="4" fill="#7A4A2A"/>
+  <rect x="1248" y="472" width="9" height="18" rx="4" fill="#7A4A2A"/>
 
   <!-- Beer bottle -->
   <rect x="1230" y="463" width="24" height="70" rx="6" fill="#D4A017"/>
@@ -166,15 +174,21 @@
   <circle class="bubble b4" cx="1237" cy="375" r="3"   fill="white" opacity="0.42"/>
   <circle class="bubble b5" cx="1245" cy="358" r="2.5" fill="white" opacity="0.32"/>
 
-  <!-- Dark brown U-cut hair -->
+  <!-- Bob hair (sides + below bandana) -->
   <path d="M1101 234 Q1099 274 1107 301 Q1123 286 1155 284 Q1187 286 1203 301 Q1211 274 1209 234" fill="#1E0D04"/>
   <path d="M1107 301 Q1111 311 1123 308" stroke="#1E0D04" stroke-width="4" fill="none" stroke-linecap="round"/>
   <path d="M1203 301 Q1199 311 1187 308" stroke="#1E0D04" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <!-- Neck (connects head to torso) -->
+  <rect x="1143" y="270" width="24" height="48" rx="10" fill="#8B5E3C"/>
 
   <!-- Head -->
   <circle cx="1155" cy="220" r="56" fill="#8B5E3C"/>
   <ellipse cx="1099" cy="230" rx="10" ry="14" fill="#8B5E3C"/>
   <ellipse cx="1211" cy="230" rx="10" ry="14" fill="#8B5E3C"/>
+
+  <!-- Hair on top of head (above bandana) — drawn after head so it shows on top -->
+  <path d="M1097 212 C1094 192 1097 166 1113 153 Q1133 141 1155 140 Q1177 141 1197 153 C1213 166 1216 192 1213 212 Z" fill="#1E0D04"/>
 
   <!-- Red checkered bandana -->
   <path d="M1099 204 Q1155 182 1211 204 L1211 231 Q1155 214 1099 231 Z" fill="#C62828"/>
@@ -199,7 +213,7 @@
 <header class="site-header">
   <div class="container">
     <div class="header-inner">
-      <h1 class="header-title">Oink <span class="pig-nose">🐽</span> and Fly</h1>
+      <h1 class="header-title" onclick="goToLanding()">Oink <span class="pig-nose">🐽</span> and Fly</h1>
     </div>
   </div>
 </header>
@@ -294,12 +308,12 @@
 
       <!-- Days -->
       <div class="field">
-        <label class="label" for="days">
-          How many days of freedom? 🗓️
-          <span class="label-bucket" id="days-bucket">Week+</span>
-        </label>
+        <label class="label" for="days">How many days of freedom? 🗓️</label>
         <input class="input" type="number" id="days" min="1" max="30" value="7">
-        <div class="days-hint">1–2 = Quick escape · 3–5 = Mini adventure · 6+ = Proper solo trip</div>
+        <div class="days-footer">
+          <span class="days-hint">1–2 = Quick escape · 3–5 = Mini adventure · 6+ = Proper solo trip</span>
+          <span class="label-bucket" id="days-bucket">Week+</span>
+        </div>
       </div>
 
     </div><!-- /form-grid -->
@@ -512,11 +526,19 @@
 
   <!-- Left arm — hanging naturally at side -->
   <path d="M272 426 Q248 470 244 522 Q240 548 246 562" stroke="#8B5E3C" stroke-width="28" stroke-linecap="round" fill="none"/>
-  <circle cx="246" cy="562" r="16" fill="#7A4A2A"/>
+  <!-- Left hand — palm + 3 fingers pointing down -->
+  <circle cx="246" cy="562" r="11" fill="#7A4A2A"/>
+  <rect x="230" y="566" width="10" height="20" rx="5" fill="#7A4A2A"/>
+  <rect x="242" y="567" width="10" height="21" rx="5" fill="#7A4A2A"/>
+  <rect x="254" y="566" width="10" height="20" rx="5" fill="#7A4A2A"/>
 
   <!-- Right arm — extended outward, holding beer bottle -->
   <path d="M352 426 Q380 470 394 516 Q402 542 398 562" stroke="#8B5E3C" stroke-width="28" stroke-linecap="round" fill="none"/>
-  <circle cx="398" cy="562" r="16" fill="#7A4A2A"/>
+  <!-- Right hand — gripping beer bottle, fingers wrap around -->
+  <circle cx="398" cy="562" r="11" fill="#7A4A2A"/>
+  <rect x="381" y="546" width="9" height="18" rx="4" fill="#7A4A2A"/>
+  <rect x="393" y="545" width="9" height="19" rx="4" fill="#7A4A2A"/>
+  <rect x="405" y="546" width="9" height="18" rx="4" fill="#7A4A2A"/>
 
   <!-- Beer bottle in right hand -->
   <rect x="387" y="537" width="24" height="70" rx="6" fill="#D4A017"/>
@@ -535,17 +557,23 @@
   <circle class="bubble b5" cx="402" cy="432" r="2.5" fill="white" opacity="0.32"/>
 
   <!-- ──── HEAD ──── -->
-  <!-- Dark brown U-cut hair (behind head, below bandana) -->
+  <!-- Bob hair (sides + below bandana) -->
   <path d="M258 308 Q256 348 264 375 Q280 360 312 358 Q344 360 360 375 Q368 348 366 308" fill="#1E0D04"/>
   <!-- U-cut ends curling inward slightly (bob shape) -->
   <path d="M264 375 Q268 385 280 382" stroke="#1E0D04" stroke-width="4" fill="none" stroke-linecap="round"/>
   <path d="M360 375 Q356 385 344 382" stroke="#1E0D04" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <!-- Neck (connects head to torso) -->
+  <rect x="300" y="346" width="24" height="45" rx="10" fill="#8B5E3C"/>
 
   <!-- Head (tan/brown skin) -->
   <circle cx="312" cy="294" r="56" fill="#8B5E3C"/>
   <!-- Ear lobes -->
   <ellipse cx="256" cy="304" rx="10" ry="14" fill="#8B5E3C"/>
   <ellipse cx="368" cy="304" rx="10" ry="14" fill="#8B5E3C"/>
+
+  <!-- Hair on top of head (above bandana) — drawn after head so it shows on top -->
+  <path d="M254 286 C252 266 254 242 270 228 Q291 216 312 215 Q333 216 354 228 C370 242 372 266 370 286 Z" fill="#1E0D04"/>
 
   <!-- Bandana — RED CHECKERED, wraps forehead -->
   <path d="M256 278 Q312 256 368 278 L368 305 Q312 288 256 305 Z" fill="#C62828"/>
@@ -570,7 +598,7 @@
 <header class="site-header">
   <div class="container">
     <div class="header-inner">
-      <h1 class="header-title">Oink <span class="pig-nose">🐽</span> and Fly</h1>
+      <h1 class="header-title" onclick="goToLanding()">Oink <span class="pig-nose">🐽</span> and Fly</h1>
     </div>
   </div>
 </header>
@@ -1402,6 +1430,14 @@ function runSearch() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+function goToLanding() {
+  if (resultsShowing) {
+    goBackToForm();
+  } else {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
 function goBackToForm() {
   document.getElementById('page-results').classList.add('hidden');
   document.getElementById('page-landing').classList.remove('hidden');
@@ -1441,7 +1477,7 @@ function renderResults(v, br, found) {
         +         hc(br.emergencyBuffer) + ' safety net'
         +       '</div>'
         +       '<div class="summary-chips">'
-        +         chip(v.days + ' days') + chip(bucket)
+        +         chip((isFinite(v.days) ? v.days : 7) + ' days') + chip(bucket)
         +         + chip(STYLE_LABELS[v.style]) + chip('From ' + v.home.city)
         +         + chip(TIMING_LABELS[v.timing] || 'Anytime')
         +         + chip(homeCurrency)
@@ -1461,8 +1497,8 @@ function renderResults(v, br, found) {
         +     ' destination' + (found.length === 1 ? '' : 's') + ' within budget'
         +   '</h2>'
         +   '<p class="results-sub">Sorted by best value · '
-        +     bucket + ' · ' + v.days + ' day' + (v.days === 1 ? '' : 's')
-        +     ' · ' + STYLE_LABELS[v.style] + ' · Click any card for full details'
+        +     bucket + ' · ' + (isFinite(v.days) ? v.days : 7) + ' day' + (v.days === 1 ? '' : 's')
+        +     ' · ' + (STYLE_LABELS[v.style] || 'Comfortable') + ' · Click any card for full details'
         +   '</p>'
         + '</div>';
 
@@ -1551,7 +1587,12 @@ function renderEmpty(v, br) {
        + '</div>';
 }
 
-function chip(text) { return '<span class="chip">' + text + '</span>'; }
+function chip(text) {
+  if (text === undefined || text === null || text !== text) return '';
+  var s = String(text);
+  if (!s || s === 'undefined' || s === 'null' || s === 'NaN') return '';
+  return '<span class="chip">' + s + '</span>';
+}
 
 /* ─────────────────────────────────────────────────────────────
    POPUP MODAL
