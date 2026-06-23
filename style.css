@@ -200,17 +200,21 @@ main,
 }
 .birds-group { animation: bird-float 22s linear infinite; }
 
-/* Beer bubbles — very slow, staggered rise */
+/* Beer bubbles — rise from bottle opening with gentle wobble */
 @keyframes bubble-rise {
-  0%   { transform: translateY(0px);   opacity: 0.85; }
-  80%  { transform: translateY(-48px); opacity: 0.15; }
-  100% { transform: translateY(-60px); opacity: 0; }
+  0%   { transform: translateY(0px)   translateX(0px);   opacity: 0; }
+  8%   { opacity: 0.90; }
+  30%  { transform: translateY(-22px) translateX(4px);   opacity: 0.78; }
+  55%  { transform: translateY(-46px) translateX(-3px);  opacity: 0.50; }
+  80%  { transform: translateY(-68px) translateX(5px);   opacity: 0.20; }
+  100% { transform: translateY(-85px) translateX(1px);   opacity: 0; }
 }
-.b1 { animation: bubble-rise 5.5s ease-out infinite; }
-.b2 { animation: bubble-rise 5.5s ease-out 1.1s  infinite; }
-.b3 { animation: bubble-rise 5.5s ease-out 2.2s  infinite; }
-.b4 { animation: bubble-rise 5.5s ease-out 3.3s  infinite; }
-.b5 { animation: bubble-rise 5.5s ease-out 4.4s  infinite; }
+/* Negative delays = stream is continuous from the very first frame */
+.b1 { animation: bubble-rise 5s ease-out  0s  infinite; }
+.b2 { animation: bubble-rise 5s ease-out -1s  infinite; }
+.b3 { animation: bubble-rise 5s ease-out -2s  infinite; }
+.b4 { animation: bubble-rise 5s ease-out -3s  infinite; }
+.b5 { animation: bubble-rise 5s ease-out -4s  infinite; }
 
 /* ── Containers ── */
 .container {
