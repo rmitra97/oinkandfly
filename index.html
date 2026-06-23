@@ -1,0 +1,1765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lazy Pig Island</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ═══════════════════════════ LANDING PAGE -->
+<div id="page-landing" class="page">
+
+<!-- LANDING BEACH BACKGROUND -->
+<div class="beach-bg-wrap">
+<svg class="beach-svg" viewBox="0 0 1440 560" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sunsetSkyL" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#3B1D6B"/>
+      <stop offset="28%"  stop-color="#A03070"/>
+      <stop offset="58%"  stop-color="#E8673A"/>
+      <stop offset="82%"  stop-color="#F5A742"/>
+      <stop offset="100%" stop-color="#FDD07A"/>
+    </linearGradient>
+    <linearGradient id="sunsetSeaL" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#C0502A"/>
+      <stop offset="55%"  stop-color="#2A5880"/>
+      <stop offset="100%" stop-color="#1A3A5C"/>
+    </linearGradient>
+    <radialGradient id="sunGlowL" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#FF8C1A" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#FF8C1A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- Sky -->
+  <rect width="1440" height="560" fill="url(#sunsetSkyL)"/>
+  <!-- Sun glow (large) -->
+  <circle cx="720" cy="322" r="140" fill="url(#sunGlowL)"/>
+  <!-- Sun -->
+  <circle cx="720" cy="322" r="58" fill="#FF7020"/>
+  <circle cx="720" cy="322" r="46" fill="#FF8C42"/>
+  <!-- Sunset horizon glow band -->
+  <ellipse cx="720" cy="320" rx="440" ry="30" fill="#FF9D3A" opacity="0.28"/>
+  <!-- Sun reflection on water (shimmer) -->
+  <path d="M665 322 Q720 335 775 322 Q748 390 720 410 Q692 390 665 322Z" fill="#FF8C42" opacity="0.32"/>
+  <!-- Sunset clouds — pink lit from below -->
+  <g class="cloud cloud-a">
+    <ellipse cx="360" cy="200" rx="90" ry="33" fill="#D4608A" opacity="0.62"/>
+    <ellipse cx="430" cy="185" rx="62" ry="26" fill="#C85080" opacity="0.58"/>
+    <ellipse cx="300" cy="210" rx="48" ry="20" fill="#D4608A" opacity="0.52"/>
+    <!-- Bright undersides -->
+    <ellipse cx="360" cy="216" rx="78" ry="12" fill="#FF9966" opacity="0.35"/>
+  </g>
+  <g class="cloud cloud-b">
+    <ellipse cx="1060" cy="175" rx="98" ry="36" fill="#B84070" opacity="0.58"/>
+    <ellipse cx="1138" cy="158" rx="66" ry="28" fill="#A83568" opacity="0.54"/>
+    <ellipse cx="990" cy="186" rx="54" ry="22" fill="#B84070" opacity="0.48"/>
+    <ellipse cx="1060" cy="194" rx="86" ry="13" fill="#FF9966" opacity="0.32"/>
+  </g>
+  <g class="cloud cloud-c">
+    <ellipse cx="200" cy="145" rx="72" ry="26" fill="#9B3060" opacity="0.50"/>
+    <ellipse cx="255" cy="130" rx="48" ry="20" fill="#8B2555" opacity="0.46"/>
+    <ellipse cx="200" cy="158" rx="62" ry="10" fill="#FF9966" opacity="0.28"/>
+  </g>
+  <!-- Birds — warm dark silhouette against sunset sky -->
+  <!-- Flock 1 (mid sky) -->
+  <g class="birds-group">
+    <path d="M290 210 Q302 200 314 210" stroke="#2A0A20" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M308 202 Q320 192 332 202" stroke="#2A0A20" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M328 207 Q340 197 352 207" stroke="#2A0A20" stroke-width="2"   fill="none" stroke-linecap="round"/>
+    <path d="M270 222 Q280 214 290 222" stroke="#2A0A20" stroke-width="2"   fill="none" stroke-linecap="round"/>
+  </g>
+  <!-- Flock 2 (higher, right side) -->
+  <g class="birds-group" style="animation-delay:-8s; animation-duration:26s">
+    <path d="M940 155 Q952 145 964 155" stroke="#2A0A20" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M960 148 Q972 138 984 148" stroke="#2A0A20" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M980 153 Q992 143 1004 153" stroke="#2A0A20" stroke-width="2"  fill="none" stroke-linecap="round"/>
+    <path d="M918 162 Q928 154 938 162" stroke="#2A0A20" stroke-width="2"   fill="none" stroke-linecap="round"/>
+    <path d="M1005 158 Q1015 150 1025 158" stroke="#2A0A20" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  </g>
+  <!-- Flock 3 (upper left) -->
+  <g class="birds-group" style="animation-delay:-14s; animation-duration:30s">
+    <path d="M560 108 Q570 100 580 108" stroke="#2A0A20" stroke-width="2"   fill="none" stroke-linecap="round"/>
+    <path d="M575 102 Q585  94 595 102" stroke="#2A0A20" stroke-width="2"   fill="none" stroke-linecap="round"/>
+    <path d="M545 114 Q553 107 561 114" stroke="#2A0A20" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  </g>
+  <!-- Sea -->
+  <rect x="0" y="318" width="1440" height="242" fill="url(#sunsetSeaL)"/>
+  <!-- Distant island (dark silhouette) -->
+  <ellipse cx="1160" cy="318" rx="108" ry="28" fill="#1E4A1A"/>
+  <rect x="1155" y="270" width="9" height="50" rx="3" fill="#3A2A10"/>
+  <ellipse cx="1159" cy="268" rx="24" ry="11" fill="#1E4A1A" transform="rotate(-18 1159 268)"/>
+  <ellipse cx="1159" cy="268" rx="24" ry="11" fill="#163A14" transform="rotate(18 1159 268)"/>
+  <ellipse cx="1159" cy="265" rx="19" ry="9"  fill="#1E4A1A"/>
+  <!-- Waves (warm sunset tones) -->
+  <path class="wave wave-1" d="M-220 352 Q180 332 580 352 Q980 372 1380 352 Q1440 348 1660 352 V415 H-220Z" fill="#D4622A" opacity="0.45"/>
+  <path class="wave wave-2" d="M-220 385 Q180 368 580 385 Q980 402 1380 385 Q1440 380 1660 385 V438 H-220Z" fill="#1A4870" opacity="0.50"/>
+  <path class="wave wave-3" d="M-220 418 Q180 405 580 418 Q980 431 1380 418 Q1440 414 1660 418 V455 H-220Z" fill="#0E3558" opacity="0.45"/>
+  <!-- Shore-break wave (very slow) -->
+  <path class="wave wave-shore" d="M-100 448 Q360 440 720 448 Q1080 456 1540 448 V464 H-100Z" fill="rgba(255,180,120,0.38)"/>
+  <!-- Sandy beach (warm golden) -->
+  <path d="M0 456 Q360 444 720 448 Q1080 452 1440 444 V560 H0Z" fill="#E8C080"/>
+  <!-- Sand ripples (warm) -->
+  <ellipse cx="220" cy="490" rx="85" ry="5.5" fill="#D4A850" opacity="0.50"/>
+  <ellipse cx="640" cy="510" rx="105" ry="5"   fill="#D4A850" opacity="0.45"/>
+  <ellipse cx="1120" cy="496" rx="92" ry="5.5" fill="#D4A850" opacity="0.50"/>
+  <ellipse cx="1360" cy="516" rx="72" ry="4"   fill="#D4A850" opacity="0.45"/>
+
+  <!-- ═══════ PERSON FROM BEHIND — landing page, right side ═══════ -->
+  <!-- x≈1155, feet at y≈558, positioned so form card (left/centre) stays clear -->
+
+  <!-- Shadow -->
+  <ellipse cx="1155" cy="556" rx="60" ry="13" fill="#B8901A" opacity="0.28"/>
+
+  <!-- Legs -->
+  <rect x="1120" y="454" width="30" height="102" rx="13" fill="#8B5E3C"/>
+  <rect x="1168" y="454" width="30" height="102" rx="13" fill="#8B5E3C"/>
+  <!-- Flipflops -->
+  <ellipse cx="1135" cy="555" rx="23" ry="8" fill="#FF6B35"/>
+  <ellipse cx="1183" cy="555" rx="23" ry="8" fill="#FF6B35"/>
+
+  <!-- Bikini bottom — blue with white stripes -->
+  <path d="M1107 448 Q1133 431 1155 434 Q1177 431 1203 448 L1197 474 Q1177 463 1155 465 Q1133 463 1113 474 Z" fill="#1565C0"/>
+  <line x1="1113" y1="445" x2="1109" y2="462" stroke="white" stroke-width="3.5" opacity="0.70"/>
+  <line x1="1130" y1="437" x2="1126" y2="457" stroke="white" stroke-width="3.5" opacity="0.70"/>
+  <line x1="1155" y1="433" x2="1155" y2="456" stroke="white" stroke-width="3.5" opacity="0.70"/>
+  <line x1="1180" y1="437" x2="1184" y2="457" stroke="white" stroke-width="3.5" opacity="0.70"/>
+  <line x1="1197" y1="445" x2="1201" y2="462" stroke="white" stroke-width="3.5" opacity="0.70"/>
+
+  <!-- Torso / back -->
+  <path d="M 1111 450 Q 1121 368 1131 322 Q 1155 310 1179 322 Q 1189 368 1199 450 Z" fill="#8B5E3C"/>
+
+  <!-- Bikini top strap — blue with white stripes -->
+  <rect x="1111" y="366" width="88" height="15" rx="5" fill="#1565C0"/>
+  <rect x="1111" y="368" width="88" height="4" fill="white" opacity="0.60"/>
+  <rect x="1111" y="375" width="88" height="4" fill="white" opacity="0.60"/>
+  <!-- Bow -->
+  <path d="M1146 366 L1131 351 L1143 366Z" fill="#0D47A1"/>
+  <path d="M1164 366 L1179 351 L1167 366Z" fill="#0D47A1"/>
+  <circle cx="1155" cy="366" r="6" fill="#1565C0" stroke="#0D47A1" stroke-width="1.5"/>
+
+  <!-- Left arm — hanging -->
+  <path d="M1115 352 Q1091 396 1087 448 Q1083 474 1089 488" stroke="#8B5E3C" stroke-width="28" stroke-linecap="round" fill="none"/>
+  <circle cx="1089" cy="488" r="16" fill="#7A4A2A"/>
+
+  <!-- Right arm — extended, holding beer -->
+  <path d="M1195 352 Q1223 396 1237 442 Q1245 468 1241 488" stroke="#8B5E3C" stroke-width="28" stroke-linecap="round" fill="none"/>
+  <circle cx="1241" cy="488" r="16" fill="#7A4A2A"/>
+
+  <!-- Beer bottle -->
+  <rect x="1230" y="463" width="24" height="70" rx="6" fill="#D4A017"/>
+  <rect x="1234" y="441" width="16" height="26" rx="5" fill="#B8860B"/>
+  <rect x="1234" y="432" width="16" height="11" rx="4" fill="#888"/>
+  <rect x="1231" y="483" width="22" height="28" rx="3" fill="#FFF8E1"/>
+  <rect x="1233" y="487" width="18" height="2.5" rx="1" fill="#FFB300"/>
+  <rect x="1233" y="493" width="18" height="2.5" rx="1" fill="#FFB300"/>
+  <rect x="1233" y="499" width="18" height="2.5" rx="1" fill="#FFB300"/>
+
+  <!-- Bubbles -->
+  <circle class="bubble b1" cx="1242" cy="425" r="5"   fill="white" opacity="0.82"/>
+  <circle class="bubble b2" cx="1235" cy="409" r="3.5" fill="white" opacity="0.68"/>
+  <circle class="bubble b3" cx="1244" cy="392" r="4"   fill="white" opacity="0.56"/>
+  <circle class="bubble b4" cx="1237" cy="375" r="3"   fill="white" opacity="0.42"/>
+  <circle class="bubble b5" cx="1245" cy="358" r="2.5" fill="white" opacity="0.32"/>
+
+  <!-- Dark brown U-cut hair -->
+  <path d="M1101 234 Q1099 274 1107 301 Q1123 286 1155 284 Q1187 286 1203 301 Q1211 274 1209 234" fill="#1E0D04"/>
+  <path d="M1107 301 Q1111 311 1123 308" stroke="#1E0D04" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M1203 301 Q1199 311 1187 308" stroke="#1E0D04" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <!-- Head -->
+  <circle cx="1155" cy="220" r="56" fill="#8B5E3C"/>
+  <ellipse cx="1099" cy="230" rx="10" ry="14" fill="#8B5E3C"/>
+  <ellipse cx="1211" cy="230" rx="10" ry="14" fill="#8B5E3C"/>
+
+  <!-- Red checkered bandana -->
+  <path d="M1099 204 Q1155 182 1211 204 L1211 231 Q1155 214 1099 231 Z" fill="#C62828"/>
+  <rect x="1106" y="206" width="10" height="9" fill="#EF9A9A" opacity="0.60"/>
+  <rect x="1124" y="206" width="10" height="9" fill="#EF9A9A" opacity="0.60"/>
+  <rect x="1142" y="206" width="10" height="9" fill="#EF9A9A" opacity="0.60"/>
+  <rect x="1160" y="206" width="10" height="9" fill="#EF9A9A" opacity="0.60"/>
+  <rect x="1178" y="206" width="10" height="9" fill="#EF9A9A" opacity="0.60"/>
+  <rect x="1196" y="206" width="10" height="9" fill="#EF9A9A" opacity="0.60"/>
+  <rect x="1115" y="218" width="10" height="9" fill="#EF9A9A" opacity="0.60"/>
+  <rect x="1133" y="218" width="10" height="9" fill="#EF9A9A" opacity="0.60"/>
+  <rect x="1151" y="218" width="10" height="9" fill="#EF9A9A" opacity="0.60"/>
+  <rect x="1169" y="218" width="10" height="9" fill="#EF9A9A" opacity="0.60"/>
+  <rect x="1187" y="218" width="10" height="9" fill="#EF9A9A" opacity="0.60"/>
+  <!-- Bandana tail -->
+  <path d="M1211 208 Q1229 224 1225 248 Q1235 234 1237 210 L1211 204 Z" fill="#C62828"/>
+  <path d="M1216 211 Q1228 226 1224 244" stroke="#EF9A9A" stroke-width="2" fill="none" opacity="0.60"/>
+</svg>
+</div>
+
+<!-- ═══════════════════════════ HEADER -->
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <h1 class="header-title">Lazy Pig <span class="pig-nose">🐽</span> Island</h1>
+      <p class="header-sub">Enter your numbers — discover where your savings can actually take you.</p>
+      <span class="privacy-badge">🔒 Nothing leaves your browser</span>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════ MAIN -->
+<main>
+<div class="container">
+
+  <!-- ─── INPUT FORM ─── -->
+  <div class="card form-card" id="form-card">
+    <h2 class="card-heading">Tell us your situation</h2>
+
+    <!-- Travel timing -->
+    <div class="field field--full" style="margin-bottom:16px;">
+      <label class="label">When are you planning to travel?</label>
+      <div class="timing-chips" id="timing-chips"><!-- built by JS --></div>
+    </div>
+
+    <div class="form-grid">
+
+      <!-- Home city — full width -->
+      <div class="field field--full">
+        <label class="label" for="home-city">Where are you flying from?</label>
+        <div class="row-pair">
+          <div class="select-wrap" style="flex:1">
+            <select class="select" id="home-city">
+              <option value="">— choose your nearest city —</option>
+            </select>
+          </div>
+          <div class="currency-pill" id="currency-pill">
+            <span id="currency-flag">🌍</span>
+            <span id="currency-code">—</span>
+            <span id="currency-name" class="currency-name-txt"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Travel scope (domestic vs cross-country) — hidden for European home cities -->
+      <div class="field field--full scope-field" id="scope-field">
+        <label class="label">Are you travelling domestic or cross-country?</label>
+        <div class="scope-btns">
+          <button class="scope-btn active" onclick="setScope(this,'anywhere')">
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" style="display:inline-block;vertical-align:middle;margin-right:5px"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2"/><path d="M10 2 Q14 6 14 10 Q14 14 10 18" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M10 2 Q6 6 6 10 Q6 14 10 18" stroke="currentColor" stroke-width="1.8" fill="none"/><line x1="2" y1="10" x2="18" y2="10" stroke="currentColor" stroke-width="1.8"/><path d="M3 7 Q10 9 17 7" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M3 13 Q10 11 17 13" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+            Cross-country (anywhere)
+          </button>
+          <button class="scope-btn" onclick="setScope(this,'domestic')">
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" style="display:inline-block;vertical-align:middle;margin-right:5px"><path d="M2 18 L2 9 L10 3 L18 9 L18 18 Z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/><rect x="7" y="12" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M10 3 L10 1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Domestic only
+          </button>
+        </div>
+        <span class="scope-note" id="scope-note"></span>
+      </div>
+
+      <!-- Savings -->
+      <div class="field">
+        <label class="label" for="savings">
+          Current savings
+          <span class="label-hint">what you have right now</span>
+        </label>
+        <div class="money-wrap">
+          <span class="money-sym" id="sym-savings">$</span>
+          <input class="input" type="number" id="savings" min="0" step="500" placeholder="15000">
+        </div>
+      </div>
+
+      <!-- Monthly income -->
+      <div class="field">
+        <label class="label" for="income">
+          Monthly income
+          <span class="label-hint">0 if not applicable</span>
+        </label>
+        <div class="money-wrap">
+          <span class="money-sym" id="sym-income">$</span>
+          <input class="input" type="number" id="income" min="0" step="100" placeholder="0" value="0">
+        </div>
+      </div>
+
+      <!-- Monthly essentials -->
+      <div class="field">
+        <label class="label" for="monthly">
+          Monthly essentials
+          <span class="label-hint">rent, bills, groceries</span>
+        </label>
+        <div class="money-wrap">
+          <span class="money-sym" id="sym-monthly">$</span>
+          <input class="input" type="number" id="monthly" min="0" step="100" placeholder="2500">
+        </div>
+      </div>
+
+      <!-- Days -->
+      <div class="field">
+        <label class="label" for="days">
+          How many days?
+          <span class="label-bucket" id="days-bucket">Week+</span>
+        </label>
+        <input class="input" type="number" id="days" min="1" max="30" value="7">
+        <div class="days-hint">1–2 = Weekend · 3–5 = Short trip · 6+ = Week+</div>
+      </div>
+
+    </div><!-- /form-grid -->
+
+    <!-- Travel style picker -->
+    <div class="field" style="margin-top:4px;">
+      <label class="label">Travel style</label>
+      <div class="style-grid">
+
+        <label class="style-opt">
+          <input type="radio" name="style" value="budget" class="sr-only">
+          <div class="style-card">
+            <span class="style-icon">
+              <!-- Doodle backpack -->
+              <svg class="doodle-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 12 Q15 6 20 6 Q25 6 25 12" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                <rect x="8" y="12" width="24" height="21" rx="5" stroke="currentColor" stroke-width="2.5" fill="none"/>
+                <rect x="14" y="20" width="12" height="8" rx="3" stroke="currentColor" stroke-width="2" fill="none"/>
+                <path d="M10 20 L30 20" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 2"/>
+                <circle cx="20" cy="24" r="1.5" fill="currentColor"/>
+              </svg>
+            </span>
+            <span class="style-name">Budget</span>
+            <span class="style-desc">Hostels, street food, local buses</span>
+            <span class="style-mult">×0.8 daily costs</span>
+          </div>
+        </label>
+
+        <label class="style-opt">
+          <input type="radio" name="style" value="mid" class="sr-only" checked>
+          <div class="style-card">
+            <span class="style-icon">
+              <!-- Doodle hotel/building -->
+              <svg class="doodle-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 14 L20 6 L28 14" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+                <rect x="8" y="14" width="24" height="20" rx="3" stroke="currentColor" stroke-width="2.5" fill="none"/>
+                <rect x="12" y="19" width="6" height="5" rx="1.5" stroke="currentColor" stroke-width="1.8" fill="none"/>
+                <rect x="22" y="19" width="6" height="5" rx="1.5" stroke="currentColor" stroke-width="1.8" fill="none"/>
+                <rect x="16" y="27" width="8" height="7" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
+                <circle cx="22" cy="30.5" r="1" fill="currentColor"/>
+              </svg>
+            </span>
+            <span class="style-name">Mid-range</span>
+            <span class="style-desc">3-star hotels, restaurants, taxis</span>
+            <span class="style-mult">×1.2 daily costs</span>
+          </div>
+        </label>
+
+        <label class="style-opt">
+          <input type="radio" name="style" value="lavish" class="sr-only">
+          <div class="style-card">
+            <span class="style-icon">
+              <!-- Doodle diamond -->
+              <svg class="doodle-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 5 L34 16 L20 35 L6 16 Z" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
+                <path d="M6 16 L13 9 L20 5 L27 9 L34 16" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/>
+                <line x1="6" y1="16" x2="34" y2="16" stroke="currentColor" stroke-width="2"/>
+                <circle cx="33" cy="8"  r="1.8" fill="currentColor"/>
+                <circle cx="37" cy="13" r="1.2" fill="currentColor"/>
+                <circle cx="35" cy="5"  r="1.2" fill="currentColor"/>
+              </svg>
+            </span>
+            <span class="style-name">Lavish</span>
+            <span class="style-desc">Luxury hotels, fine dining, spas</span>
+            <span class="style-mult">×1.8 daily costs</span>
+          </div>
+        </label>
+
+      </div>
+    </div>
+
+    <!-- Smart allocation recommendation (replaces slider) -->
+    <div class="alloc-rec" id="alloc-rec">
+      💡 <strong>How much should you spend on travel?</strong>
+      Spending <strong>20%–40%</strong> of your savings is considered safe for most people.
+      We use <strong>30%</strong> for these estimates.
+      <span id="alloc-range-detail"></span>
+    </div>
+
+    <!-- Live budget preview -->
+    <div class="budget-preview" id="budget-preview">
+      <div class="bp-label">Your estimated travel budget</div>
+      <div class="bp-amount" id="bp-amount">Fill in your numbers above</div>
+      <div class="bp-formula" id="bp-formula"></div>
+    </div>
+
+    <button class="find-btn" id="find-btn" onclick="runSearch()" disabled>
+      Find my destinations →
+    </button>
+  </div><!-- /form-card -->
+
+</div><!-- /container -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>🔒 No sign-up. No tracking. No data ever leaves your browser.</p>
+    <p class="footer-note">Exchange rates: approximate static table (June 2025). Flight estimates use straight-line distance, not real fares.</p>
+  </div>
+</footer>
+
+</div><!-- /#page-landing -->
+
+<!-- ═══════════════════════════ RESULTS PAGE -->
+<div id="page-results" class="page hidden">
+
+<!-- RESULTS BEACH + PERSON BACKGROUND -->
+<div class="beach-bg-wrap">
+<svg class="beach-svg" viewBox="0 0 1440 640" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sunsetSkyR" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#3B1D6B"/>
+      <stop offset="30%"  stop-color="#A03070"/>
+      <stop offset="60%"  stop-color="#E8673A"/>
+      <stop offset="85%"  stop-color="#F5A742"/>
+      <stop offset="100%" stop-color="#FDD07A"/>
+    </linearGradient>
+    <linearGradient id="sunsetSeaR" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#B04A22"/>
+      <stop offset="50%"  stop-color="#234E72"/>
+      <stop offset="100%" stop-color="#152B42"/>
+    </linearGradient>
+    <radialGradient id="sunGlowR" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#FF8C1A" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#FF8C1A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- Sky -->
+  <rect width="1440" height="620" fill="url(#sunsetSkyR)"/>
+  <!-- Sun glow -->
+  <circle cx="800" cy="350" r="130" fill="url(#sunGlowR)"/>
+  <circle cx="800" cy="350" r="52" fill="#FF7020" opacity="0.85"/>
+  <circle cx="800" cy="350" r="40" fill="#FF8C42" opacity="0.9"/>
+  <!-- Sunset clouds -->
+  <g class="cloud cloud-a">
+    <ellipse cx="1100" cy="200" rx="90" ry="32" fill="#C85A7A" opacity="0.55"/>
+    <ellipse cx="1165" cy="184" rx="62" ry="26" fill="#B84870" opacity="0.50"/>
+    <ellipse cx="1042" cy="210" rx="48" ry="20" fill="#C85A7A" opacity="0.45"/>
+    <ellipse cx="1100" cy="218" rx="78" ry="11" fill="#FF9966" opacity="0.28"/>
+  </g>
+  <g class="cloud cloud-c">
+    <ellipse cx="480" cy="175" rx="76" ry="28" fill="#9B3060" opacity="0.48"/>
+    <ellipse cx="540" cy="160" rx="52" ry="22" fill="#8A2555" opacity="0.44"/>
+    <ellipse cx="480" cy="188" rx="65" ry="10" fill="#FF9966" opacity="0.26"/>
+  </g>
+  <!-- Birds — dark silhouettes against sunset -->
+  <g class="birds-group">
+    <path d="M520 168 Q532 158 544 168" stroke="#2A0A20" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M538 160 Q550 150 562 160" stroke="#2A0A20" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M558 165 Q568 157 578 165" stroke="#2A0A20" stroke-width="2"   fill="none" stroke-linecap="round"/>
+    <path d="M500 176 Q510 168 520 176" stroke="#2A0A20" stroke-width="2"   fill="none" stroke-linecap="round"/>
+  </g>
+  <g class="birds-group" style="animation-delay:-10s; animation-duration:28s">
+    <path d="M900 140 Q910 132 920 140" stroke="#2A0A20" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+    <path d="M916 133 Q926 125 936 133" stroke="#2A0A20" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+    <path d="M882 148 Q890 141 898 148" stroke="#2A0A20" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  </g>
+  <!-- Sea -->
+  <rect x="0" y="348" width="1440" height="272" fill="url(#sunsetSeaR)"/>
+  <!-- Distant island -->
+  <ellipse cx="1220" cy="348" rx="95" ry="24" fill="#1A4018" opacity="0.80"/>
+  <rect x="1216" y="306" width="8" height="44" rx="3" fill="#3A2A10" opacity="0.80"/>
+  <ellipse cx="1220" cy="304" rx="21" ry="10" fill="#1A4018" opacity="0.80"/>
+  <!-- Waves (warm tones) -->
+  <path class="wave wave-1" d="M-220 378 Q360 358 720 378 Q1080 398 1440 378 V428 H-220Z" fill="#C4582A" opacity="0.38"/>
+  <path class="wave wave-2" d="M-220 408 Q360 392 720 408 Q1080 424 1440 408 V448 H-220Z" fill="#1A3F62" opacity="0.44"/>
+  <!-- Shore wave (very slow) -->
+  <path class="wave wave-shore" d="M-100 462 Q360 454 720 462 Q1080 470 1540 462 V476 H-100Z" fill="rgba(240,150,80,0.32)"/>
+  <!-- Sandy beach (warm golden) -->
+  <path d="M0 478 Q720 462 1440 470 V640 H0Z" fill="#E0B870" opacity="0.92"/>
+  <!-- Sand ripples -->
+  <ellipse cx="250" cy="510" rx="90" ry="5.5" fill="#C8A050" opacity="0.45"/>
+  <ellipse cx="1100" cy="524" rx="110" ry="5"   fill="#C8A050" opacity="0.40"/>
+  <ellipse cx="1360" cy="508" rx="75" ry="4"   fill="#C8A050" opacity="0.45"/>
+
+  <!-- ═══════ PERSON FROM BEHIND (inside SVG) ═══════ -->
+  <!-- Seated/standing, left side of canvas, x≈310, feet at y≈628 -->
+
+  <!-- Shadow on sand -->
+  <ellipse cx="312" cy="628" rx="60" ry="13" fill="#B8901A" opacity="0.30"/>
+
+  <!-- Legs (tan skin) -->
+  <rect x="277" y="528" width="30" height="100" rx="13" fill="#8B5E3C"/>
+  <rect x="325" y="528" width="30" height="100" rx="13" fill="#8B5E3C"/>
+  <!-- Flipflops — coral -->
+  <ellipse cx="292" cy="627" rx="23" ry="8" fill="#FF6B35"/>
+  <ellipse cx="340" cy="627" rx="23" ry="8" fill="#FF6B35"/>
+
+  <!-- Bikini bottom — BLUE with white stripes -->
+  <path d="M264 522 Q290 505 312 508 Q334 505 360 522 L354 548 Q334 537 312 539 Q290 537 270 548 Z" fill="#1565C0"/>
+  <!-- White horizontal stripes on bottom -->
+  <line x1="270" y1="519" x2="266" y2="536" stroke="white" stroke-width="3.5" opacity="0.70"/>
+  <line x1="287" y1="511" x2="283" y2="531" stroke="white" stroke-width="3.5" opacity="0.70"/>
+  <line x1="312" y1="507" x2="312" y2="530" stroke="white" stroke-width="3.5" opacity="0.70"/>
+  <line x1="337" y1="511" x2="341" y2="531" stroke="white" stroke-width="3.5" opacity="0.70"/>
+  <line x1="354" y1="519" x2="358" y2="536" stroke="white" stroke-width="3.5" opacity="0.70"/>
+
+  <!-- Torso / back (tan/brown skin) -->
+  <path d="M 268 524 Q 278 442 288 396 Q 312 384 336 396 Q 346 442 356 524 Z" fill="#8B5E3C"/>
+
+  <!-- Bikini top strap across back — BLUE with white stripes -->
+  <rect x="268" y="440" width="88" height="15" rx="5" fill="#1565C0"/>
+  <!-- White stripe on strap -->
+  <rect x="268" y="442" width="88" height="4" fill="white" opacity="0.60"/>
+  <rect x="268" y="449" width="88" height="4" fill="white" opacity="0.60"/>
+  <!-- Bikini bow at back center -->
+  <path d="M303 440 L288 425 L300 440Z" fill="#0D47A1"/>
+  <path d="M321 440 L336 425 L324 440Z" fill="#0D47A1"/>
+  <circle cx="312" cy="440" r="6" fill="#1565C0" stroke="#0D47A1" stroke-width="1.5"/>
+
+  <!-- Left arm — hanging naturally at side -->
+  <path d="M272 426 Q248 470 244 522 Q240 548 246 562" stroke="#8B5E3C" stroke-width="28" stroke-linecap="round" fill="none"/>
+  <circle cx="246" cy="562" r="16" fill="#7A4A2A"/>
+
+  <!-- Right arm — extended outward, holding beer bottle -->
+  <path d="M352 426 Q380 470 394 516 Q402 542 398 562" stroke="#8B5E3C" stroke-width="28" stroke-linecap="round" fill="none"/>
+  <circle cx="398" cy="562" r="16" fill="#7A4A2A"/>
+
+  <!-- Beer bottle in right hand -->
+  <rect x="387" y="537" width="24" height="70" rx="6" fill="#D4A017"/>
+  <rect x="391" y="515" width="16" height="26" rx="5" fill="#B8860B"/>
+  <rect x="391" y="506" width="16" height="11" rx="4" fill="#888"/>
+  <rect x="388" y="557" width="22" height="28" rx="3" fill="#FFF8E1"/>
+  <rect x="390" y="561" width="18" height="2.5" rx="1" fill="#FFB300"/>
+  <rect x="390" y="567" width="18" height="2.5" rx="1" fill="#FFB300"/>
+  <rect x="390" y="573" width="18" height="2.5" rx="1" fill="#FFB300"/>
+
+  <!-- Bubbles rising from bottle neck (very slow, CSS animated) -->
+  <circle class="bubble b1" cx="399" cy="499" r="5"   fill="white" opacity="0.82"/>
+  <circle class="bubble b2" cx="392" cy="483" r="3.5" fill="white" opacity="0.68"/>
+  <circle class="bubble b3" cx="401" cy="466" r="4"   fill="white" opacity="0.56"/>
+  <circle class="bubble b4" cx="394" cy="449" r="3"   fill="white" opacity="0.42"/>
+  <circle class="bubble b5" cx="402" cy="432" r="2.5" fill="white" opacity="0.32"/>
+
+  <!-- ──── HEAD ──── -->
+  <!-- Dark brown U-cut hair (behind head, below bandana) -->
+  <path d="M258 308 Q256 348 264 375 Q280 360 312 358 Q344 360 360 375 Q368 348 366 308" fill="#1E0D04"/>
+  <!-- U-cut ends curling inward slightly (bob shape) -->
+  <path d="M264 375 Q268 385 280 382" stroke="#1E0D04" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M360 375 Q356 385 344 382" stroke="#1E0D04" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <!-- Head (tan/brown skin) -->
+  <circle cx="312" cy="294" r="56" fill="#8B5E3C"/>
+  <!-- Ear lobes -->
+  <ellipse cx="256" cy="304" rx="10" ry="14" fill="#8B5E3C"/>
+  <ellipse cx="368" cy="304" rx="10" ry="14" fill="#8B5E3C"/>
+
+  <!-- Bandana — RED CHECKERED, wraps forehead -->
+  <path d="M256 278 Q312 256 368 278 L368 305 Q312 288 256 305 Z" fill="#C62828"/>
+  <!-- Checkered squares on bandana (lighter red) -->
+  <rect x="263" y="280" width="10" height="9" fill="#EF9A9A" opacity="0.60"/>
+  <rect x="281" y="280" width="10" height="9" fill="#EF9A9A" opacity="0.60"/>
+  <rect x="299" y="280" width="10" height="9" fill="#EF9A9A" opacity="0.60"/>
+  <rect x="317" y="280" width="10" height="9" fill="#EF9A9A" opacity="0.60"/>
+  <rect x="335" y="280" width="10" height="9" fill="#EF9A9A" opacity="0.60"/>
+  <rect x="353" y="280" width="10" height="9" fill="#EF9A9A" opacity="0.60"/>
+  <rect x="272" y="292" width="10" height="9" fill="#EF9A9A" opacity="0.60"/>
+  <rect x="290" y="292" width="10" height="9" fill="#EF9A9A" opacity="0.60"/>
+  <rect x="308" y="292" width="10" height="9" fill="#EF9A9A" opacity="0.60"/>
+  <rect x="326" y="292" width="10" height="9" fill="#EF9A9A" opacity="0.60"/>
+  <rect x="344" y="292" width="10" height="9" fill="#EF9A9A" opacity="0.60"/>
+  <!-- Bandana tail on right side, flowing down -->
+  <path d="M368 282 Q386 298 382 322 Q392 308 394 284 L368 278 Z" fill="#C62828"/>
+  <path d="M373 285 Q385 300 381 318" stroke="#EF9A9A" stroke-width="2" fill="none" opacity="0.60"/>
+</svg>
+</div>
+
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <h1 class="header-title">Lazy Pig <span class="pig-nose">🐽</span> Island</h1>
+      <p class="header-sub">Enter your numbers — discover where your savings can actually take you.</p>
+      <span class="privacy-badge">🔒 Nothing leaves your browser</span>
+    </div>
+  </div>
+</header>
+
+<div class="results-outer">
+  <div class="results-container">
+    <div class="results-topbar">
+      <button class="back-btn" onclick="goBackToForm()">← Back to search</button>
+    </div>
+    <section id="results-section" class="results-section">
+      <div id="results-content"></div>
+      <p class="rates-note">
+        ⚠ Exchange rates are approximate (June 2025 mid-market). All flight and cost figures are estimates — always verify before booking.
+      </p>
+    </section>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>🔒 No sign-up. No tracking. No data ever leaves your browser.</p>
+    <p class="footer-note">Exchange rates: approximate static table (June 2025). Flight estimates use straight-line distance, not real fares.</p>
+  </div>
+</footer>
+
+</div><!-- /#page-results -->
+
+<!-- ═══════════════════════════ CITY POPUP MODAL -->
+<div class="modal-overlay hidden" id="modal-overlay" onclick="handleOverlayClick(event)">
+  <div class="modal" id="modal-box">
+    <button class="modal-close" onclick="closePopup()">✕</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SCRIPTS -->
+<script src="cities.js"></script>
+<script src="logic.js"></script>
+<script src="currencies.js"></script>
+<script>
+'use strict';
+
+/* ─────────────────────────────────────────────────────────────
+   STATIC CITY INFO (seasons, weather, tips, highlights)
+   All 43 destination cities. good_months = 1-indexed month numbers.
+   ───────────────────────────────────────────────────────────── */
+var CITY_INFO = {
+  'Lisbon': {
+    flag:'🇵🇹', good_months:[3,4,5,9,10],
+    weather:'Mediterranean. Summers hot & dry (28–35°C). Winters mild (12–16°C) with light rain.',
+    best:'Mar–Jun & Sep–Oct', avoid:'Jul–Aug (peak crowds, highest prices)',
+    tips:['Grab a 24h Viva Viagem transit card — trams, metro and buses all included','Pastel de nata at Pastéis de Belém costs ~€1.30 — the best in the world','Book Sintra day trips in advance; queues can be brutal in summer'],
+    highlights:['Alfama district & São Jorge Castle','Belém Tower & Jerónimos Monastery','LX Factory Sunday Market','Sintra Palace UNESCO day trip'],
+    transport:'Excellent metro, buses and iconic trams (Tram 28 runs through Alfama). 24h pass ~€6.40. Uber is cheap by European standards.',
+    acco_note:'Baixa/Chiado is priciest. Mouraria and Intendente are 30% cheaper and still central. Belém is quieter and great value — 15 min by tram.',
+  },
+  'Porto': {
+    flag:'🇵🇹', good_months:[4,5,6,9,10],
+    weather:'Atlantic coast. Warm summers (25°C), mild rainy winters. June–Sep mostly dry.',
+    best:'Apr–Jun & Sep–Oct', avoid:'Nov–Feb (frequent rain and grey skies)',
+    tips:['Porto Card covers transit + free/discounted museum entry','Cross the Dom Luís bridge on foot for free panoramic views','Port wine cellar tours in Vila Nova de Gaia start from €10'],
+    highlights:['Ribeira waterfront district','Livraria Lello legendary bookshop','Port wine cellars in Vila Nova de Gaia','Douro Valley day trip'],
+    transport:'Metro connects the airport and major areas. Trams 1 and 22 are scenic. Buses fill gaps. Night buses run from midnight.',
+    acco_note:'Ribeira riverside area carries a premium. Cedofeita and Bonfim are 30–40% cheaper and still walkable to all sights.',
+  },
+  'Barcelona': {
+    flag:'🇪🇸', good_months:[4,5,6,9,10],
+    weather:'Mediterranean. Hot dry summers (28–32°C). Mild winters. Rain mainly in spring/fall.',
+    best:'Apr–Jun & Sep–Oct', avoid:'Jul–Aug (hottest, most crowded, priciest)',
+    tips:['Book Sagrada Família tickets weeks ahead — it sells out online','Eat the menú del día (3-course lunch) at ~€12 in any local restaurant','Barceloneta beach is packed — try Bogatell or Mar Bella beaches instead'],
+    highlights:['Sagrada Família (Gaudí masterpiece)','Park Güell & Tibidabo hill','Gothic Quarter medieval streets','La Boqueria Market'],
+    transport:'Excellent TMB metro + buses. T-Casual 10-trip card is best value. Night buses replace metro after midnight.',
+    acco_note:'Gothic Quarter, Eixample and Born are priciest. Gràcia, Poble Sec and Poblenou are 25–40% cheaper and well-connected by metro.',
+  },
+  'Madrid': {
+    flag:'🇪🇸', good_months:[4,5,9,10,11],
+    weather:'Continental. Very hot summers (35–40°C). Cold dry winters. Spring/fall are perfect.',
+    best:'Apr–May & Sep–Nov', avoid:'Jul–Aug (extreme heat)',
+    tips:['Prado & Reina Sofía museums are free Thursday evenings after 6pm','Mercado de San Miguel lets you try many tapas without committing to one restaurant','Night buses run until 6am — saves on late-night taxis'],
+    highlights:['Prado Museum (world-class art)','Retiro Park & Crystal Palace','Royal Palace & Almudena Cathedral','Mercado de San Miguel tapas'],
+    transport:'World-class metro covering the entire city. Single fare €1.50; 10-trip MetroBus card saves money. Taxis are metered and honest.',
+    acco_note:'Salamanca and Sol/Centro are most expensive. Malasaña, Lavapiés and Chueca are 25–35% cheaper while still very central and vibrant.',
+  },
+  'Rome': {
+    flag:'🇮🇹', good_months:[3,4,5,9,10],
+    weather:'Mediterranean. Summers scorching (32–38°C). Winters mild (8–14°C) with some rain.',
+    best:'Mar–May & Sep–Oct', avoid:'Jul–Aug (heat + extreme tourist crowds)',
+    tips:['Pre-book the Colosseum, Vatican & Borghese Gallery — all sell out','Fill your water bottle from nasoni street taps — free and safe to drink','Visiting the Vatican on a rainy weekday morning means shorter queues'],
+    highlights:['Colosseum & Roman Forum','Vatican Museums & Sistine Chapel','Trevi Fountain & Spanish Steps','Borghese Gallery (book ahead)'],
+    transport:'Only 2 metro lines — buses and trams cover the rest. 48h or 72h tickets are best value. Taxis use meters legally; avoid unmarked cabs.',
+    acco_note:'Spanish Steps, Campo de\' Fiori and Colosseum areas are priciest. Trastevere and Prati offer much better value while staying very central.',
+  },
+  'Paris': {
+    flag:'🇫🇷', good_months:[4,5,6,9,10],
+    weather:'Temperate. Mild summers (20–25°C). Cold grey winters. Light rain year-round.',
+    best:'Apr–Jun & Sep–Oct', avoid:'Aug (locals leave, tourists take over)',
+    tips:['Paris Museum Pass pays off if you visit 3+ museums in 2 days','Buy cheese, charcuterie and wine from a supermarket for a perfect picnic','Book a carnet of 10 metro tickets — cheaper than single fares'],
+    highlights:['Eiffel Tower at dusk','Louvre Museum (arrive at opening)','Le Marais district & Sainte-Chapelle','Versailles Palace day trip'],
+    transport:'14 metro lines cover nearly everything. Carnet of 10 tickets saves money. RER B links CDG airport. Vélib bike-share is a great supplement.',
+    acco_note:'Marais, St Germain and Champs-Élysées area are priciest. République, Oberkampf and Belleville are 30–45% cheaper with great local dining.',
+  },
+  'Amsterdam': {
+    flag:'🇳🇱', good_months:[4,5,6,7,8,9],
+    weather:'Cool & rainy year-round. Best May–Aug (17–22°C). Winters cold and grey.',
+    best:'Apr–Sep (tulips peak Apr–May)', avoid:'Dec–Feb (cold, wet, dark)',
+    tips:['Rent a bike for ~€12/day — it\'s the authentic Amsterdam way to explore','Book Anne Frank House weeks in advance online; it sells out daily','Albert Cuyp Market has the cheapest stroopwafels and street food'],
+    highlights:['Van Gogh Museum & Rijksmuseum','Anne Frank House','Canal boat tour','Keukenhof tulip gardens (Apr–May only)'],
+    transport:'Trams, metro, buses and ferries all use the same OV-chipkaart. GVB day pass covers everything. Cycling is the real Amsterdam commute.',
+    acco_note:'Jordaan and Canal Ring are priciest. De Pijp, Noord (free ferry across) and Oost are 30–40% cheaper with a more local neighbourhood feel.',
+  },
+  'Berlin': {
+    flag:'🇩🇪', good_months:[5,6,7,8,9],
+    weather:'Continental. Warm summers (22–26°C). Cold winters. Long daylight hours Jun–Aug.',
+    best:'May–Sep', avoid:'Nov–Feb (cold, dark, many venues less lively)',
+    tips:['Berlin WelcomeCard covers unlimited transit + 50+ museum discounts','Museum Island entry is free on the first Sunday of each month','Mauerpark flea market on Sundays has cheap street food and live music'],
+    highlights:['Brandenburg Gate & Holocaust Memorial','Museum Island (UNESCO)','East Side Gallery (Berlin Wall)','Checkpoint Charlie & Cold War history'],
+    transport:'Excellent S-Bahn, U-Bahn, trams and buses. Single €3.20 or day pass €9.90. Berlin WelcomeCard covers all transit plus museum discounts.',
+    acco_note:'Mitte and Prenzlauer Berg carry a premium. Kreuzberg, Neukölln and Wedding are 30–40% cheaper and offer a more authentic Berlin experience.',
+  },
+  'Prague': {
+    flag:'🇨🇿', good_months:[4,5,6,9,10],
+    weather:'Continental. Warm summers (22–25°C). Cold icy winters. Spring/fall are crisp and beautiful.',
+    best:'Apr–Jun & Sep–Oct', avoid:'Dec–Feb (very cold, icy streets)',
+    tips:['Prague Card covers transit + top 50 attractions in one pass','Eat trdelník from a bakery, not a tourist stand (same product, half the price)','Old Town Square crowds thin after 7pm — perfect light for photos too'],
+    highlights:['Prague Castle & St Vitus Cathedral','Charles Bridge at dawn','Old Town Square & Astronomical Clock','Josefov Jewish Quarter'],
+    transport:'Metro (3 lines) + trams = great coverage. 24h ticket ~€4. Trams run through the night. The historic centre is very walkable.',
+    acco_note:'Old Town (Staré Město) and Malá Strana are 40–60% pricier. Vinohrady, Žižkov and Smíchov offer great value just 2 tram stops away.',
+  },
+  'Vienna': {
+    flag:'🇦🇹', good_months:[4,5,6,9,10],
+    weather:'Continental. Warm summers (24–28°C). Cold winters. Spring and fall are mild and pleasant.',
+    best:'Apr–Jun & Sep–Oct', avoid:'Jul–Aug (crowded), Jan–Feb (very cold)',
+    tips:['Vienna City Card covers transit + 210+ discounts at museums and attractions','Lunch at Naschmarkt food stalls is far cheaper than sit-down restaurants','Many imperial palaces have evening or student discount entry'],
+    highlights:['Schönbrunn Palace & gardens','Kunsthistorisches Museum','St Stephen\'s Cathedral','Naschmarkt food market'],
+    transport:'Excellent U-Bahn + trams + night buses. 24h ticket €8, 48h €14.10. The Wiener Linien network is punctual and comprehensive.',
+    acco_note:'1st district (Innere Stadt) is most expensive. Mariahilf (6th) and Neubau (7th) districts offer the best value while remaining central.',
+  },
+  'Athens': {
+    flag:'🇬🇷', good_months:[3,4,5,10,11],
+    weather:'Mediterranean. Scorching dry summers (35–40°C). Mild winters (10–15°C). Spring is perfect.',
+    best:'Mar–May & Oct–Nov', avoid:'Jul–Aug (brutal heat, very crowded)',
+    tips:['€30 Acropolis combo ticket covers 7 major ancient sites — great value','Souvlaki near Monastiraki square costs ~€3 and is delicious','Visit the Acropolis at 8am opening for empty paths and golden morning light'],
+    highlights:['Acropolis & Parthenon at sunrise','National Archaeological Museum','Plaka historic neighbourhood','Cape Sounion temple day trip'],
+    transport:'Metro (3 lines) + buses. €9 day ticket covers everything including the port Piraeus. Night buses supplement after midnight.',
+    acco_note:'Syntagma and Kolonaki are most expensive. Monastiraki, Psiri and Koukaki are 30–40% cheaper and all within walking distance of the Acropolis.',
+  },
+  'Istanbul': {
+    flag:'🇹🇷', good_months:[4,5,9,10,11],
+    weather:'Mediterranean-continental mix. Hot summers (30–35°C). Mild rainy winters. Spring/fall ideal.',
+    best:'Apr–May & Sep–Nov', avoid:'Jul–Aug (heat + peak crowds)',
+    tips:['Museum Pass Turkey covers Hagia Sofia, Topkapi and more — saves money instantly','Simit (sesame bread rings) from street carts cost next to nothing for a quick breakfast','Take the public Bosphorus ferry (not a tourist cruise) for the same stunning views at 1/10 the price'],
+    highlights:['Hagia Sophia','Blue Mosque (Sultanahmet)','Grand Bazaar & Spice Market','Topkapi Palace & Bosphorus cruise'],
+    transport:'Metro, tram, ferry and funicular all use Istanbulkart (~€0.50/trip). Ferries across the Bosphorus are cheap, frequent and scenic.',
+    acco_note:'Sultanahmet and Beyoğlu/Taksim are priciest. Kadıköy on the Asian side is 40–50% cheaper and wonderfully local. Üsküdar is also great value.',
+  },
+  'Bangkok': {
+    flag:'🇹🇭', good_months:[11,12,1,2,3],
+    weather:'Tropical. Nov–Feb cool & dry (25–32°C) — the golden season. Mar–May scorching. Jun–Oct monsoon with heavy daily rain.',
+    best:'Nov–Feb', avoid:'Apr–May (hottest), Jun–Oct (monsoon flooding risk)',
+    tips:['BTS Skytrain Rabbit card saves money vs buying single tickets each time','Street food at Or Tor Kor Market is fresh, safe, and half the price of tourist spots','Songthaew shared trucks go for a fraction of what tuk-tuks charge for the same route'],
+    highlights:['Grand Palace & Wat Phra Kaew','Chatuchak Weekend Market (Sat–Sun)','Khao San Road night scene','Floating markets (Damnoen Saduak)'],
+    transport:'BTS Skytrain + MRT + river boats. Rabbit card saves on BTS. Grab is cheap. Tuk-tuks are fun but always negotiate a price before you get in.',
+    acco_note:'Sukhumvit and Silom are priciest. Khao San Road area and Rattanakosin island are great budget options. Bang Lamphu is the classic backpacker hub.',
+  },
+  'Chiang Mai': {
+    flag:'🇹🇭', good_months:[11,12,1,2],
+    weather:'Tropical highland. Nov–Feb cool & lovely (18–28°C). Mar–May hot with severe smoke from burning season. Jun–Oct rainy.',
+    best:'Nov–Feb', avoid:'Mar–May (severe smoke & heat — genuinely harmful to health)',
+    tips:['Rent a scooter (200 THB/day) to reach temples outside the city moat cheaply','Sunday Night Market on Wualai Road is the best for street food and local crafts','For elephants, only visit ethical sanctuaries — avoid any that offer riding'],
+    highlights:['Doi Suthep Temple on the mountain','Sunday Night Walking Street','Elephant Nature Park (ethical sanctuary)','Old City moat & ancient temples'],
+    transport:'Songthaew (shared red trucks) go anywhere in the city for ~30 THB. Tuk-tuks cost more. Grab also works here. Scooters widely available for rent.',
+    acco_note:'Old City within the moat is most convenient and mid-priced. Nimman area is trendy and slightly higher. Outside the moat is cheapest and quieter.',
+  },
+  'Bali': {
+    flag:'🇮🇩', good_months:[4,5,6,7,8,9],
+    weather:'Tropical. Dry season Apr–Sep (27–32°C, sunny). Rainy season Oct–Mar (heavy afternoon downpours).',
+    best:'Apr–Sep', avoid:'Jan–Feb (heaviest rains)',
+    tips:['Hire a local driver for the day (~$40 total) — it\'s more practical than renting a scooter for first-timers','Eat at local warungs (family restaurants) for $2–3 full meals','Avoid southern Kuta; head to Ubud, Canggu or Seminyak for a better vibe and prices'],
+    highlights:['Tegallalang Rice Terraces in Ubud','Tanah Lot Temple at sunset','Mount Batur sunrise hike','Ubud Monkey Forest & art markets'],
+    transport:'No public transport — scooter rental (~60,000 IDR/day) is the local way. Grab works in south Bali. Blue Bird metered taxis are reliable.',
+    acco_note:'Seminyak and Canggu beach areas carry a 50%+ premium over Ubud. Central Ubud ranges widely. Outskirts of Ubud are cheapest with rice field views.',
+  },
+  'Tokyo': {
+    flag:'🇯🇵', good_months:[3,4,10,11],
+    weather:'Temperate. Spring cherry blossoms (Mar–Apr, 15–20°C) and fall foliage (Oct–Nov) are magical. Summers hot & humid (30–35°C). Winters cold but dry.',
+    best:'Mar–Apr (cherry blossoms) & Oct–Nov (fall colours)', avoid:'Jul–Aug (heat and humidity are exhausting)',
+    tips:['Get an IC card (Suica or Pasmo) — works on all trains, buses, and even vending machines','Convenience store food (7-Eleven, FamilyMart) is genuinely excellent and very affordable','Book teamLab art installations and popular ramen spots well in advance — they sell out'],
+    highlights:['Shinjuku & Shibuya Crossing at night','Senso-ji Temple in Asakusa at dawn','Tsukiji Outer Market for fresh sushi breakfast','teamLab Borderless digital art museum'],
+    transport:'World\'s best metro system. Suica IC card pays for all trains, buses and even vending machines. JR Pass only worth it if combining with bullet train travel.',
+    acco_note:'Shinjuku, Shibuya and Ginza are most expensive. Asakusa, Ueno and Akihabara are 25–35% cheaper and deeply central. Shimokitazawa is trendy and affordable.',
+  },
+  'Kyoto': {
+    flag:'🇯🇵', good_months:[3,4,10,11],
+    weather:'Temperate. Same as Tokyo. Spring cherry blossoms (late Mar–Apr) and fall foliage (Nov) are extraordinary — plan months ahead.',
+    best:'Late Mar–Apr & Oct–Nov', avoid:'Jul–Aug (heat + humidity + peak crowds + highest prices)',
+    tips:['A Kyoto day bus pass (¥700) covers most temple routes efficiently','Many temples have free entry — only the famous 10–15 charge admission','Go to Fushimi Inari before 7am to walk the torii gates in peace'],
+    highlights:['Fushimi Inari Shrine (1,000 torii gates)','Arashiyama Bamboo Grove','Kinkaku-ji Golden Pavilion','Gion geisha district at dusk'],
+    transport:'Buses (day pass ¥700 covers most routes) + 2-line subway. Arashiyama and eastern temples are well-connected. City is very bikeable.',
+    acco_note:'Near Gion and the central station are priciest. Higashiyama is more residential and affordable. Northwest near Arashiyama has excellent budget ryokans.',
+  },
+  'Singapore': {
+    flag:'🇸🇬', good_months:[2,3,4,5,6,7,8],
+    weather:'Tropical, hot and humid year-round (28–33°C). Two monsoon seasons but showers are usually brief.',
+    best:'Feb–Aug (drier period)', avoid:'Nov–Jan (Northeast Monsoon — heavier and more persistent rain)',
+    tips:['MRT + bus network is excellent — avoid taxis during rush hour (expensive + slow)','Hawker centres (Maxwell, Lau Pa Sat, Tiong Bahru) serve world-class food for $3–6','Gardens by the Bay grounds and Jewel Changi waterfall are free to enter'],
+    highlights:['Gardens by the Bay (Supertrees)','Marina Bay Sands SkyPark observation deck','Hawker centre food tour','Sentosa Island beaches'],
+    transport:'World-class MRT + buses on EZ-Link card. Reliable, air-conditioned and cheap at ~SGD 1–2.50 per trip. Grab is available for door-to-door.',
+    acco_note:'Marina Bay, Orchard and Sentosa are significantly pricier. Bugis, Lavender, Little India and Geylang are 35–50% cheaper and still well-connected by MRT.',
+  },
+  'Ho Chi Minh City': {
+    flag:'🇻🇳', good_months:[12,1,2,3,4],
+    weather:'Tropical. Dry season Dec–Apr (hot, sunny, 28–35°C). Rainy season May–Nov with heavy afternoon downpours.',
+    best:'Dec–Apr', avoid:'Sep–Nov (heaviest rains and some flooding)',
+    tips:['Grab app (ride-hailing) is far cheaper and more reliable than street taxis','Bánh mì sandwiches from street stalls cost ~$1 and are world-class','Cu Chi Tunnels: a half-day tour is enough — no need for the more expensive full day'],
+    highlights:['War Remnants Museum (moving, important)','Cu Chi Tunnels underground network','Ben Thanh Market & street food scene','Mekong Delta half-day boat trip'],
+    transport:'Grab is the safe, cheap go-to for all rides. Metered taxis (Vinasun, Mai Linh brands) are reliable. No useful metro yet — under construction.',
+    acco_note:'District 1 (Bến Thành) is the tourist centre and priciest. District 3 and Bình Thạnh are 25–40% cheaper. Phú Mỹ Hưng is modern and affordable but far from sights.',
+  },
+  'Hanoi': {
+    flag:'🇻🇳', good_months:[10,11,3,4],
+    weather:'Subtropical. Spring (Mar–Apr) and fall (Oct–Nov) are ideal at 20–25°C. Summers hot & rainy. Winters grey and occasionally chilly.',
+    best:'Oct–Nov & Mar–Apr', avoid:'Jun–Aug (heat + heavy monsoon rain)',
+    tips:['Bún chả (grilled pork with noodles) is Hanoi\'s signature dish — find it near Hoan Kiem Lake for ~$2','The overnight train to Sapa is cheap and saves hotel costs','A walk around Hoan Kiem Lake at sunset is free and beautiful'],
+    highlights:['Hoan Kiem Lake & Ngoc Son Temple','Ho Chi Minh Mausoleum complex','Hanoi Old Quarter night market','Ha Long Bay overnight cruise (booked from Hanoi)'],
+    transport:'Grab is the best option for most trips. Xe ôm motorbike taxis are very cheap. Walking works well in the Old Quarter. Limited bus network.',
+    acco_note:'Old Quarter is the tourist hub and most expensive. Ba Đình near Ho Chi Minh Mausoleum is 25–30% cheaper. Tây Hồ (West Lake) is popular with expats and great value.',
+  },
+  'Dubai': {
+    flag:'🇦🇪', good_months:[11,12,1,2,3],
+    weather:'Desert. Nov–Mar pleasant (20–28°C). Apr–Oct scorching (38–46°C or more). Almost no rain ever.',
+    best:'Nov–Mar', avoid:'Jun–Sep (dangerously hot — 40°C+ even in the shade)',
+    tips:['Dubai Metro Day Pass ($5) connects the airport, Downtown, Dubai Mall and the Burj area','For the Burj Khalifa, book "At the Top" — not the premium "Lounge" — for the same views at half the price','Souk Madinat Jumeirah and the Gold/Spice Souks in Deira are free to explore'],
+    highlights:['Burj Khalifa observation deck (book ahead)','Dubai Mall & Dubai Fountain show','Desert safari at sunset','Gold Souk & Spice Souk in Deira'],
+    transport:'Dubai Metro (Red + Green lines) covers key areas with Nol card. Taxis are metered and plentiful. RTA buses supplement. Desert and beach areas need a car or taxi.',
+    acco_note:'Downtown Dubai, DIFC and The Palm command premium rates. Deira and Bur Dubai (older city) are 50–60% cheaper and more culturally authentic.',
+  },
+  'Mexico City': {
+    flag:'🇲🇽', good_months:[11,12,1,2,3,4,5],
+    weather:'High altitude (2,240m) means mild temperatures year-round (15–25°C). Rainy season Jun–Sep (afternoon showers). Dry & sunny Oct–May.',
+    best:'Oct–May', avoid:'Jun–Sep (rain; some smog on still days)',
+    tips:['Metro costs ~$0.25 per ride — the most affordable city transport anywhere in the world','Tacos al pastor from street stands are ~$0.50 each and outstanding','Book the Frida Kahlo Museum (Casa Azul) well in advance — it sells out every single day'],
+    highlights:['Frida Kahlo Museum (Casa Azul) in Coyoacán','Teotihuacán Pyramids day trip','Zócalo & Metropolitan Cathedral','Xochimilco trajinera canal boat ride'],
+    transport:'Metro is extraordinary value at ~MXN 5 ($0.25) per ride. Metrobús BRT slightly more. Uber is safe and cheap. Walking works well in Roma and Condesa.',
+    acco_note:'Roma Norte, Condesa and Polanco are most expensive. Centro Histórico and Coyoacán are 30–40% cheaper. Doctores and Guerrero are budget but require more care.',
+  },
+  'Cancún': {
+    flag:'🇲🇽', good_months:[12,1,2,3,4,5],
+    weather:'Tropical Caribbean coast. Dry & sunny Dec–May (27–32°C). Hurricane season Jun–Nov with regular rain.',
+    best:'Dec–May', avoid:'Aug–Oct (hurricane season — genuine risk)',
+    tips:['ADO buses to Chichén Itzá and Tulum are cheap, comfortable and reliable','Supermarkets in the Hotel Zone save massively vs hotel restaurants for snacks and drinks','Cenote snorkeling day trips are far better value than the resort beach clubs'],
+    highlights:['Chichén Itzá UNESCO Mayan pyramid','Cenote swimming (natural sinkholes)','Tulum Mayan ruins (day trip south)','Isla Mujeres ferry day trip'],
+    transport:'No useful public transport in the Hotel Zone. R1 local bus (~MXN 12) connects Hotel Zone to downtown in 30 min. Taxis in the Hotel Zone are expensive — negotiate.',
+    acco_note:'Hotel Zone (Zona Hotelera) is 2–3× pricier than downtown (Centro). Staying downtown gives local food prices too, with bus access to beaches.',
+  },
+  'Tulum': {
+    flag:'🇲🇽', good_months:[12,1,2,3,4,5],
+    weather:'Tropical. Dry season Dec–May (28–33°C). Rainy season Jun–Nov with afternoon rains and hurricane risk.',
+    best:'Dec–May', avoid:'Sep–Oct (hurricane season — highest risk)',
+    tips:['Rent a bicycle to move between the town, ruins, and beach (cheapest option by far)','Gran Cenote and Dos Ojos are the best cenotes — go before 10am to beat tour groups','Eat in Tulum Pueblo (the town) — restaurants on the beach strip charge 3× more for the same food'],
+    highlights:['Tulum Mayan Ruins perched above the sea','Gran Cenote swimming','Sian Ka\'an UNESCO Biosphere reserve','Cobá Mayan pyramid climb (can still climb)'],
+    transport:'No public transit. Rent a bike (MXN 100/day) to move between town, beach and ruins. Colectivo vans connect to Playa del Carmen cheaply.',
+    acco_note:'Beach strip (Tulum Playa) is 200–400% more expensive than the town (Tulum Pueblo). Staying in town and visiting beaches by bike or taxi saves enormously.',
+  },
+  'Oaxaca': {
+    flag:'🇲🇽', good_months:[11,12,1,2,3,4,10],
+    weather:'Mild highland climate (18–28°C year-round). Rainy season Jun–Sep (afternoon showers). Best Oct–May.',
+    best:'Oct–May (especially Day of the Dead, Nov 1–2)', avoid:'Jun–Sep (daily afternoon rains)',
+    tips:['Mercado 20 de Noviembre has the cheapest and most authentic tlayudas and mole negro','Mezcal tastings at small palenques outside the city are ⅓ the price of in-city bars','Monte Albán ruins entry is ~$5 and absolutely worth a half-day visit'],
+    highlights:['Monte Albán Zapotec ruins','Day of the Dead celebrations (Nov 1–2)','Hierve el Agua petrified waterfalls','Oaxacan food, chocolate & mezcal scene'],
+    transport:'Compact and very walkable city centre. Taxis are cheap and plentiful (~MXN 40–60 anywhere in centre). Colectivos reach outlying villages and ruins cheaply.',
+    acco_note:'Centro Histórico around the Zócalo is uniformly priced. Prices drop 30–40% just 5 blocks from the centre. Barrio Jalatlaco is charming and well-priced.',
+  },
+  'Puerto Vallarta': {
+    flag:'🇲🇽', good_months:[11,12,1,2,3,4,5],
+    weather:'Tropical Pacific coast. Dry & sunny Nov–May (28–33°C). Rainy season Jun–Oct with daily warm showers.',
+    best:'Nov–May', avoid:'Aug–Oct (heaviest rain, occasional hurricane risk)',
+    tips:['Zona Romántica is walkable and far cheaper than the Hotel Zone for food and bars','Water taxis to Yelapa and Quimixto hidden beaches are $20–30 return trip','The Malecón boardwalk sculptures and nightly street performers are completely free'],
+    highlights:['Zona Romántica & Los Muertos Beach','Marietas Islands snorkeling & bird sanctuary','Yelapa hidden beach day trip by boat','Sierra Madre zip-lining & canopy tours'],
+    transport:'Local buses (MXN 10) run the main road frequently. Taxi prices are set by zone — ask the tourism office for the rate card. Water taxis connect beach towns.',
+    acco_note:'Hotel Zone (Zona Hotelera) is most expensive. Zona Romántica is mid-range and walkable. El Centro and Versalles are 30–50% cheaper still.',
+  },
+  'San Miguel de Allende': {
+    flag:'🇲🇽', good_months:[10,11,12,1,2,3,4],
+    weather:'Mild semi-arid highland (18–28°C year-round). Dry Oct–May. Light rains Jun–Sep afternoons.',
+    best:'Oct–May', avoid:'Jun–Sep (daily afternoon rains slow sightseeing)',
+    tips:['Jardín Principal (the main square) is free and buzzing every evening with locals','Mercado Ignacio Ramírez is the cheap locals\' market vs tourist restaurant prices','Weekend Artisan Market near the Parroquia has good prices on local crafts and textiles'],
+    highlights:['Parroquia de San Miguel Arcángel (iconic pink Gothic church)','Cañada de la Virgen Aztec pyramids','La Gruta natural hot spring pools','Day of the Dead festival (late Oct–Nov)'],
+    transport:'Compact historic centre is very walkable. Taxis are cheap (~MXN 40 anywhere in centre). No useful internal buses — walking or taxis only within the city.',
+    acco_note:'Centro around the Jardín is priciest. Colonia San Antonio and Colonia Guadalupe are 30–40% cheaper and just a 15-min walk to everything.',
+  },
+  'Guadalajara': {
+    flag:'🇲🇽', good_months:[11,12,1,2,3,4,5],
+    weather:'Mild highland climate (18–28°C). Dry season Nov–May. Rainy season Jun–Sep.',
+    best:'Nov–May', avoid:'Jul–Aug (heaviest rain)',
+    tips:['Light Rail (Tren Ligero) costs $0.30 per ride and connects main neighbourhoods','Tortas ahogadas (bread rolls drowned in chili sauce) are Guadalajara\'s iconic dish for ~$2','Tequila town is 1 hour away by bus ($3) — skip the pricey organised tours and go independently'],
+    highlights:['Historic Centro Histórico & Cathedral','Tlaquepaque artisan craft district','Tequila town day trip & distillery tours','Mercado San Juan de Dios (huge indoor market)'],
+    transport:'Light Rail (Tren Ligero) + Macrobús BRT, very affordable at MXN 10 per ride. Uber is safe and widely used. Walking practical in the historic centre.',
+    acco_note:'Historic Centro and Tlaquepaque are mid-range. Zapopan (suburban) is 30–40% cheaper. Chapultepec and Americana neighbourhoods are popular with visitors at mid-prices.',
+  },
+  'New York': {
+    flag:'🇺🇸', good_months:[4,5,6,9,10],
+    weather:'Four distinct seasons. Spring (Apr–Jun, 15–22°C) and fall (Sep–Nov, 12–20°C) are ideal. Summers hot & humid. Winters cold with snow.',
+    best:'Apr–Jun & Sep–Oct', avoid:'Jul–Aug (hot, humid) & Jan–Feb (very cold)',
+    tips:['7-day Unlimited MetroCard pays off after about 13 rides across the subway system','The Met, MoMA and Natural History Museum suggest a $25+ donation but do not require it','Smorgasburg outdoor food market (weekends in Brooklyn) is the best cheap food scene in the city'],
+    highlights:['Central Park & the Highline elevated park','The Met Museum & MoMA','Brooklyn Bridge walk + DUMBO neighbourhood','Smorgasburg food market (Sat/Sun)'],
+    transport:'Subway runs 24/7 — get an Unlimited card for stays over 5 days. Citi Bike for short hops. Avoid cabs/Uber during rush hour — the subway is always faster.',
+    acco_note:'Midtown Manhattan and SoHo are most expensive. Brooklyn (Williamsburg, Park Slope) and Long Island City (Queens) are 35–50% cheaper with easy subway access to Manhattan.',
+  },
+  'Los Angeles': {
+    flag:'🇺🇸', good_months:[3,4,5,10,11,12],
+    weather:'Mediterranean. Mostly sunny, 18–28°C year-round. Jun–Aug can be foggy in the morning (June Gloom). Rarely rains.',
+    best:'Mar–May & Oct–Dec', avoid:'Jul–Aug (crowded beaches, hot inland areas)',
+    tips:['Rent a car or use Metro Rail — LA has limited public transit for most areas','Griffith Observatory is free to visit and has views as good as any paid lookout','In-N-Out Burger is a $5 local institution that beats any tourist restaurant for a quick meal'],
+    highlights:['Griffith Observatory & Hollywood Sign hike','Venice Beach boardwalk & canals','The Getty Center (free admission, stunning building)','Santa Monica Pier & 3rd Street Promenade'],
+    transport:'Very car-dependent. Metro Rail exists but has limited coverage. Uber/Lyft everywhere. Santa Monica Big Blue Bus is cheap locally. Avoid driving 7–9am and 4–7pm.',
+    acco_note:'West Hollywood, Santa Monica and Beverly Hills are premium. Downtown LA, Koreatown and East LA are 40–60% cheaper. Hollywood itself is mid-range but touristy.',
+  },
+  'New Orleans': {
+    flag:'🇺🇸', good_months:[2,3,4,10,11],
+    weather:'Subtropical. Hot & humid summers (32–35°C). Mild winters (12–16°C). Hurricane season Jun–Nov.',
+    best:'Feb–Apr (Mardi Gras is Feb/Mar) & Oct–Nov', avoid:'Jun–Sep (brutal heat + humidity + hurricane risk)',
+    tips:['Frenchmen Street has better live jazz than Bourbon Street — and the music is free outside the bars','St Charles streetcar line costs $1.25 and runs through the historic Garden District','Central Grocery sells the original muffuletta sandwich — iconic, substantial and shareable for 2'],
+    highlights:['Bourbon Street & French Quarter','Frenchmen Street live jazz (evenings)','Garden District & Lafayette Cemetery walk','Swamp bayou tour from the city'],
+    transport:'Streetcars (St Charles, Canal, Riverfront) for $1.25 per ride. Walking is practical in the French Quarter and Garden District. Lyft/Uber affordable elsewhere.',
+    acco_note:'French Quarter is most expensive and noisy. Garden District and Uptown are mid-range and residential. Mid-City and Tremé are budget-friendly and increasingly popular.',
+  },
+  'Vancouver': {
+    flag:'🇨🇦', good_months:[6,7,8,9],
+    weather:'Mild & rainy Oct–May (8–14°C, frequently grey and wet). Warm & sunny Jun–Sep (18–25°C). Best summer in Canada.',
+    best:'Jun–Sep', avoid:'Nov–Feb (grey, very rainy — not ideal for sightseeing)',
+    tips:['Compass Card covers bus, SkyTrain and SeaBus — get a day pass for unlimited travel','Granville Island Public Market has excellent food at real market prices','Lynn Canyon suspension bridge and park is free — the paid Capilano bridge is nearby but not necessary'],
+    highlights:['Stanley Park 9km seawall (cycle or walk)','Granville Island market & studios','Capilano Suspension Bridge (pay) or Lynn Canyon (free)','Whistler mountain day trip (1.5h)'],
+    transport:'SkyTrain + buses + SeaBus on Compass Card. Very walkable downtown. Rental bikes along the seawall are popular and practical.',
+    acco_note:'Downtown, Yaletown and West End are most expensive. Commercial Drive, Mount Pleasant and East Vancouver are 30–40% cheaper with great local dining.',
+  },
+  'Buenos Aires': {
+    flag:'🇦🇷', good_months:[9,10,11,3,4,5],
+    weather:'Four seasons (Southern Hemisphere reversed). Spring (Sep–Nov) and fall (Mar–May) are mild and beautiful. Summers warm. Winters cold.',
+    best:'Sep–Nov & Mar–May', avoid:'Jan–Feb (hot, many locals leave town)',
+    tips:['Argentina\'s currency situation changes often — check the current best way to exchange before you go','Parrilla (grill restaurant) lunch menus offer steak + wine for far less than the dinner menu prices','SUBE public transit card is extremely cheap for all buses and the Subte metro'],
+    highlights:['La Boca & Caminito colourful artist quarter','San Telmo antiques market (Sundays)','Recoleta Cemetery (Eva Perón\'s tomb)','Tango show and milonga dancing in Palermo'],
+    transport:'SUBE card covers Subte metro + buses for very cheap fares. Uber works (drivers use a workaround). App-based taxis (remises) are safe and affordable.',
+    acco_note:'Palermo and Recoleta are most expensive. San Telmo and Almagro are 30–40% cheaper and still vibrant. Balvanera near Once is the cheapest central option.',
+  },
+  'Rio de Janeiro': {
+    flag:'🇧🇷', good_months:[5,6,7,8,9],
+    weather:'Tropical. Hot & humid year-round. Rainy season Dec–Mar (heavy downpours + Carnival crowds). Dry season May–Sep (perfect beach weather, 24–28°C).',
+    best:'May–Sep', avoid:'Dec–Mar (rain + extreme crowds during Carnival)',
+    tips:['Ipanema and Leblon beaches have better safety reputations than Copacabana — same quality though','Book Sugarloaf Mountain cable car tickets online in advance to skip the queue','Lapa Arches at night hosts free samba street parties on weekends — authentically local'],
+    highlights:['Christ the Redeemer on Corcovado mountain','Sugarloaf Mountain cable car','Ipanema Beach sunset','Lapa Arches & samba street scene (weekends)'],
+    transport:'Metro covers the south zone (Ipanema to downtown) well. Buses are cheap but complex. Uber is safe and cheap. SuperVia trains serve the north zone.',
+    acco_note:'Ipanema and Leblon are most expensive beachside. Copacabana is slightly cheaper. Santa Teresa (hilltop) and Botafogo are 30–40% cheaper with great restaurant scenes.',
+  },
+  'Medellín': {
+    flag:'🇨🇴', good_months:[12,1,2,3,7,8],
+    weather:'"City of Eternal Spring": 18–27°C year-round. Two rainy seasons (Apr–May, Oct–Nov). Dry Dec–Mar and Jul–Aug.',
+    best:'Dec–Mar & Jul–Aug', avoid:'Apr–May & Oct–Nov (heavy rains slow everything down)',
+    tips:['Metro + cable cars all use the same card — a combined day pass is very affordable','Poblado and Laureles districts are the safest and most visitor-friendly neighbourhoods','Arví Park via cable car is a beautiful free nature escape from the city grid'],
+    highlights:['Metro cable car to hillside communities','Plaza Botero with Fernando Botero\'s sculptures','Arví Park eco-reserve via cable car','El Peñol giant rock day trip'],
+    transport:'Metro + Metrocable (cable cars) + electric escalators all on one integrated card. Uber operates under a different name — check the app. Very affordable.',
+    acco_note:'El Poblado is the expat hub and most expensive. Laureles and Envigado offer 35–45% savings while remaining safe, walkable and well-connected by metro.',
+  },
+  'Cartagena': {
+    flag:'🇨🇴', good_months:[12,1,2,3,4],
+    weather:'Hot & humid tropical coast year-round (28–33°C). Dry season Dec–Apr. Rainy May–Nov.',
+    best:'Dec–Apr', avoid:'Sep–Nov (heaviest rain)',
+    tips:['Walk the Old City walls for free panoramic views over the sea and rooftops','Eat lunch in Getsemaní neighbourhood (colourful street art, half the price of the Old City)','Book boat trips to Rosario Islands directly at the pier to avoid agency markup'],
+    highlights:['Walled Old City (UNESCO Heritage Site)','Castillo de San Felipe colonial fortress','Rosario Islands snorkeling & clear water','Getsemaní street art neighbourhood'],
+    transport:'Walking within the Old City and Getsemaní is the best approach. Fixed-price taxis for longer trips (~COP 8,000–15,000 inside city). Uber also works.',
+    acco_note:'Old City walled centre has the highest prices. Getsemaní (just outside the walls) is 40–50% cheaper. Bocagrande (beach area) is mid-range with a more modern feel.',
+  },
+  'Bogotá': {
+    flag:'🇨🇴', good_months:[12,1,2,6,7,8],
+    weather:'High altitude (2,600m) — cool year-round (7–18°C). Two dry seasons (Dec–Feb, Jun–Aug). Two rainy periods (Mar–May, Sep–Nov).',
+    best:'Dec–Feb & Jun–Aug', avoid:'Mar–May & Sep–Nov (wettest months)',
+    tips:['TransMilenio bus rapid transit is cheap and reaches most tourist areas','La Candelaria historic centre is walkable but stay alert with your belongings','Museo del Oro (Gold Museum) entry is only ~$1 and is genuinely world-class'],
+    highlights:['Museo del Oro (world\'s finest pre-Columbian gold)','La Candelaria historic centre','Monserrate mountain cable car & views','Usaquén flea market & brunch (Sundays)'],
+    transport:'TransMilenio BRT is cheap and fast but crowded. Uber operates (drivers use a workaround). InDriver app taxis are recommended for safety and fair pricing.',
+    acco_note:'Zona Rosa, Usaquén and Chico are premium. La Candelaria (historic) is cheapest but requires more vigilance. Chapinero and Quinta Camacho offer mid-range with good safety.',
+  },
+  'Lima': {
+    flag:'🇵🇪', good_months:[12,1,2,3,4,10,11],
+    weather:'Desert coast: almost no rain ever. Summers Dec–Apr are sunny and warm (22–28°C). Winters Jun–Aug bring the garúa — a persistent grey fog and drizzle.',
+    best:'Dec–Apr', avoid:'Jun–Aug (depressing grey fog lasts all day — the garúa season)',
+    tips:['Stay in Miraflores or Barranco — they\'re the safe, scenic and walkable districts','Lima has some of the world\'s best restaurants — splurge once at Maido or Central as a treat','Most Lima museums cost under $5 and are genuinely excellent'],
+    highlights:['Museo Larco (stunning pre-Columbian gold & ceramics)','Barranco bohemian cliff-top district','Miraflores paragliding over the Pacific','Huaca Pucllana ancient pyramid inside the city'],
+    transport:'Grab + Beat are safe ride-hailing options. Metropolitano BRT covers north-south corridor cheaply. Miraflores itself is very walkable along the Malecón cliff.',
+    acco_note:'Miraflores is most expensive but safest and most walkable. Barranco is mid-range and bohemian. Surco and San Isidro are quieter at mid prices. Jesús María is cheapest close-in.',
+  },
+  'Cusco': {
+    flag:'🇵🇪', good_months:[5,6,7,8,9],
+    weather:'High altitude (3,400m): thin air, intense sun, cold nights. Dry season May–Sep (sunny, 15–20°C days). Rainy season Oct–Apr.',
+    best:'May–Sep (dry season, Inca Trail open)', avoid:'Jan–Feb (Machu Picchu trail closes due to rain and landslides)',
+    tips:['Give yourself 2–3 days to acclimatise before doing anything strenuous — altitude sickness is very real here','Boleto Turístico covers 16 ruins and sites for ~$45 and is essential value','Machu Picchu trains sell out weeks in advance — book directly on Peru Rail\'s website early'],
+    highlights:['Machu Picchu (the main event — book early)','Sacred Valley & Pisac indigenous market','Sacsayhuamán Inca fortress above Cusco','Rainbow Mountain Vinicunca (sunrise hike)'],
+    transport:'Entirely walkable in the historic centre (though steep — take it slow at altitude). Taxis to markets and ruins are cheap (~S/10–15). Colectivos connect the Sacred Valley.',
+    acco_note:'Plaza de Armas and San Blas are priciest. A 10-minute walk downhill (San Pedro area) cuts prices 30–40%. Villages in the Sacred Valley are cheapest of all.',
+  },
+  'Santiago': {
+    flag:'🇨🇱', good_months:[9,10,11,3,4,5],
+    weather:'Mediterranean. Hot dry summers (Dec–Feb, 28–33°C). Mild winters (Jun–Aug, 5–15°C). Spring and fall are the sweet spot.',
+    best:'Sep–Nov & Mar–May', avoid:'Dec–Feb (hot & occasionally smoggy), Jun–Jul (cold)',
+    tips:['Bip! transit card covers the entire metro and bus network cheaply across the whole city','Mercado Central fish market: eat at the small stalls inside, not the tourist restaurants at the entrance','Valparaíso is 1.5h by bus ($4) — completely different coastal vibe and well worth a day trip'],
+    highlights:['Cerro San Cristóbal hill & funicular for views','Barrio Lastarria & Barrio Italia (coffee, art, food)','Pablo Neruda\'s house La Chascona','Valparaíso colourful coastal city day trip'],
+    transport:'Metro is clean, modern and covers all main areas. Bip! card for metro + buses. Uber is widely used. Very walkable in Lastarria and Baquedano.',
+    acco_note:'Vitacura, Las Condes and Providencia are most expensive. Barrio Italia, Lastarria and Ñuñoa are 25–35% cheaper and increasingly popular. Barrio Brasil is the budget option.',
+  },
+  'Montevideo': {
+    flag:'🇺🇾', good_months:[11,12,1,2,3,4],
+    weather:'Temperate. Warm summers (Dec–Mar, 22–30°C). Mild winters (Jun–Aug, 8–15°C). Rain distributed fairly evenly year-round.',
+    best:'Nov–Apr', avoid:'Jun–Jul (coldest, greyer)',
+    tips:['Ciudad Vieja (old town) is compact and completely walkable for free exploring','Mercado del Puerto for parrilla grill at lunchtime — lunch service is significantly cheaper than dinner','Take a ferry to Colonia del Sacramento (1h from Buenos Aires or 3h from Montevideo) — a beautiful colonial UNESCO town'],
+    highlights:['Ciudad Vieja historic waterfront neighbourhood','Rambla coastal promenade (22km walkable)','Mercado del Puerto grill market','Colonia del Sacramento UNESCO colonial town'],
+    transport:'CUTCSA buses cover the whole city for ~UYU 60 ($1.50) per trip. Walking along the Rambla is free and beautiful. Taxis and Uber are both available.',
+    acco_note:'Ciudad Vieja and Centro are mid-range. Pocitos (beachside) is slightly higher for apartment stays. Punta Carretas and Malvín are popular residential areas and good value.',
+  },
+  'Cape Town': {
+    flag:'🇿🇦', good_months:[11,12,1,2,3,4],
+    weather:'Mediterranean. Summers (Nov–Apr): warm & dry (22–28°C), stunning. Winters (Jun–Aug): cool, windy and rainy (8–15°C).',
+    best:'Nov–Apr', avoid:'Jun–Aug (cold, wet, Table Mountain often clouded over)',
+    tips:['MyCiti bus serves the waterfront, city bowl and Camps Bay cheaply and safely','Go up Table Mountain cableway early morning for clear views and shorter queues — it clouds over by afternoon','Kalk Bay harbour has excellent fresh fish & chips at a fraction of tourist restaurant prices'],
+    highlights:['Table Mountain cableway or hiking route','Cape Point & Cape of Good Hope Peninsula','Boulders Beach African penguin colony','Robben Island (Nelson Mandela\'s former prison)'],
+    transport:'MyCiti bus is the safest public transport (routes to V&A Waterfront, Camps Bay, Sea Point). Uber is safe, cheap and recommended over hailing street taxis.',
+    acco_note:'V&A Waterfront and Camps Bay are most expensive. City Bowl (De Waterkant, Gardens) is mid-range and walkable. Woodstock and Observatory are 35–50% cheaper with an artsy vibe.',
+  },
+  'Marrakech': {
+    flag:'🇲🇦', good_months:[3,4,10,11],
+    weather:'Semi-arid desert. Spring (Mar–May) and fall (Oct–Nov) are best: 20–28°C. Summers are scorching (38–42°C). Winter nights can be surprisingly cold.',
+    best:'Mar–May & Oct–Nov', avoid:'Jul–Aug (extreme heat — genuinely difficult to sightsee)',
+    tips:['Always agree on the price before getting into a taxi or hiring a guide — negotiate firmly but politely','Djemaa el-Fna square is free to walk and the evening food stalls and street performers are spectacular','Hammam (traditional bath) visits start from $5 and are an authentic local cultural experience'],
+    highlights:['Djemaa el-Fna main square (evenings)','Medina labyrinth & souks (get delightfully lost)','Bahia Palace & Saadian Tombs','Atlas Mountains day trip (Berber villages)'],
+    transport:'Petit taxis (small red taxis, metered by law — always verify) are cheap within the city. Walking inside the Medina is essential — no cars in the narrow souks.',
+    acco_note:'Riads near Djemaa el-Fna command highest prices. Moving 15 minutes walk from the square cuts prices 30–40%. Guéliz (new city) is 40–50% cheaper with modern amenities.',
+  },
+};
+
+/* ─────────────────────────────────────────────────────────────
+   EXTRA HOME CITIES (flying-from options not in CITIES)
+   ───────────────────────────────────────────────────────────── */
+var EXTRA_HOME_CITIES = [
+  { city:'Atlanta',       country:'USA',         lat: 33.64, lon: -84.43 },
+  { city:'Austin',        country:'USA',         lat: 30.20, lon: -97.67 },
+  { city:'Boston',        country:'USA',         lat: 42.36, lon: -71.01 },
+  { city:'Charlotte',     country:'USA',         lat: 35.21, lon: -80.94 },
+  { city:'Chicago',       country:'USA',         lat: 41.98, lon: -87.91 },
+  { city:'Dallas',        country:'USA',         lat: 32.90, lon: -97.04 },
+  { city:'Denver',        country:'USA',         lat: 39.86, lon:-104.67 },
+  { city:'Detroit',       country:'USA',         lat: 42.21, lon: -83.35 },
+  { city:'Houston',       country:'USA',         lat: 29.99, lon: -95.34 },
+  { city:'Las Vegas',     country:'USA',         lat: 36.08, lon:-115.15 },
+  { city:'Miami',         country:'USA',         lat: 25.80, lon: -80.28 },
+  { city:'Minneapolis',   country:'USA',         lat: 44.88, lon: -93.22 },
+  { city:'Nashville',     country:'USA',         lat: 36.12, lon: -86.68 },
+  { city:'Orlando',       country:'USA',         lat: 28.43, lon: -81.31 },
+  { city:'Philadelphia',  country:'USA',         lat: 39.87, lon: -75.24 },
+  { city:'Phoenix',       country:'USA',         lat: 33.44, lon:-112.01 },
+  { city:'Portland',      country:'USA',         lat: 45.59, lon:-122.60 },
+  { city:'Salt Lake City',country:'USA',         lat: 40.79, lon:-111.98 },
+  { city:'San Francisco', country:'USA',         lat: 37.62, lon:-122.38 },
+  { city:'Seattle',       country:'USA',         lat: 47.45, lon:-122.31 },
+  { city:'Washington DC', country:'USA',         lat: 38.85, lon: -77.04 },
+  { city:'Calgary',       country:'Canada',      lat: 51.13, lon:-114.01 },
+  { city:'Montreal',      country:'Canada',      lat: 45.47, lon: -73.74 },
+  { city:'Toronto',       country:'Canada',      lat: 43.68, lon: -79.63 },
+  { city:'London',        country:'UK',          lat: 51.47, lon:  -0.45 },
+  { city:'Dublin',        country:'Ireland',     lat: 53.43, lon:  -6.24 },
+  { city:'Zurich',        country:'Switzerland', lat: 47.46, lon:   8.55 },
+  { city:'Stockholm',     country:'Sweden',      lat: 59.65, lon:  17.93 },
+  { city:'Copenhagen',    country:'Denmark',     lat: 55.62, lon:  12.66 },
+  { city:'Sydney',        country:'Australia',   lat:-33.95, lon: 151.18 },
+  { city:'Melbourne',     country:'Australia',   lat:-37.67, lon: 144.84 },
+  { city:'Auckland',      country:'New Zealand', lat:-37.01, lon: 174.79 },
+  { city:'Seoul',         country:'South Korea', lat: 37.46, lon: 126.44 },
+  { city:'Hong Kong',     country:'Hong Kong',   lat: 22.31, lon: 113.92 },
+  { city:'Taipei',        country:'Taiwan',      lat: 25.08, lon: 121.23 },
+  { city:'Kuala Lumpur',  country:'Malaysia',    lat:  2.75, lon: 101.71 },
+  { city:'Mumbai',        country:'India',       lat: 19.09, lon:  72.87 },
+  { city:'Delhi',         country:'India',       lat: 28.57, lon:  77.09 },
+  { city:'Bengaluru',     country:'India',       lat: 13.20, lon:  77.71 },
+  { city:'Karachi',       country:'Pakistan',    lat: 24.91, lon:  67.16 },
+  { city:'Cairo',         country:'Egypt',       lat: 30.12, lon:  31.40 },
+  { city:'Nairobi',       country:'Kenya',       lat: -1.32, lon:  36.93 },
+  { city:'Lagos',         country:'Nigeria',     lat:  6.58, lon:   3.32 },
+  { city:'Johannesburg',  country:'South Africa',lat:-26.14, lon:  28.24 },
+  { city:'São Paulo',     country:'Brazil',      lat:-23.43, lon: -46.47 },
+];
+
+var COUNTRY_FLAGS = {
+  'USA':'🇺🇸','UK':'🇬🇧','Australia':'🇦🇺','Canada':'🇨🇦','India':'🇮🇳',
+  'Pakistan':'🇵🇰','Brazil':'🇧🇷','South Korea':'🇰🇷','Hong Kong':'🇭🇰',
+  'Malaysia':'🇲🇾','Thailand':'🇹🇭','Indonesia':'🇮🇩','Vietnam':'🇻🇳',
+  'Japan':'🇯🇵','Singapore':'🇸🇬','Taiwan':'🇹🇼','UAE':'🇦🇪',
+  'Mexico':'🇲🇽','Colombia':'🇨🇴','Argentina':'🇦🇷','Peru':'🇵🇪',
+  'Chile':'🇨🇱','Uruguay':'🇺🇾','Turkey':'🇹🇷','South Africa':'🇿🇦',
+  'Kenya':'🇰🇪','Nigeria':'🇳🇬','Egypt':'🇪🇬','Morocco':'🇲🇦',
+  'Portugal':'🇵🇹','Spain':'🇪🇸','France':'🇫🇷','Germany':'🇩🇪',
+  'Italy':'🇮🇹','Netherlands':'🇳🇱','Austria':'🇦🇹','Greece':'🇬🇷',
+  'Ireland':'🇮🇪','Czechia':'🇨🇿','Switzerland':'🇨🇭','Sweden':'🇸🇪',
+  'Denmark':'🇩🇰','New Zealand':'🇳🇿','New Zealand':'🇳🇿',
+};
+
+/* ─────────────────────────────────────────────────────────────
+   EUROPEAN COUNTRIES — no domestic/cross-country filter shown
+   (cross-border travel is the norm in Europe)
+   ───────────────────────────────────────────────────────────── */
+var EUROPEAN_COUNTRIES = [
+  'Portugal','Spain','France','Germany','Italy','Netherlands','Austria','Greece',
+  'Turkey','UK','Ireland','Switzerland','Sweden','Denmark','Norway','Belgium',
+  'Poland','Hungary','Czechia','Slovakia','Romania','Finland','Luxembourg',
+  'Serbia','Croatia','Slovenia','Bulgaria','Estonia','Latvia','Lithuania',
+];
+
+function isEuropean(country) {
+  return EUROPEAN_COUNTRIES.indexOf(country) !== -1;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   STATE
+   ───────────────────────────────────────────────────────────── */
+var homeCurrency   = 'USD';
+var resultsShowing = false;
+var travelTiming   = 'anytime';
+var travelScope    = 'anywhere'; // 'anywhere' or 'domestic'
+var lastResults    = [];
+var lastV          = null;
+var lastBr         = null;
+var shownCount     = 9;
+
+/* ─────────────────────────────────────────────────────────────
+   TRAVEL TIMING SECTION (computed from today's date)
+   ───────────────────────────────────────────────────────────── */
+var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+function computeTimingOptions() {
+  var now  = new Date();
+  var mon  = now.getMonth(); // 0-indexed
+
+  // Next Saturday
+  var daysToSat = (6 - now.getDay() + 7) % 7 || 7;
+  var sat = new Date(now); sat.setDate(now.getDate() + daysToSat);
+  var sun = new Date(sat); sun.setDate(sat.getDate() + 1);
+  var weekendSub = MONTHS[sat.getMonth()] + ' ' + sat.getDate() + '–' + sun.getDate();
+
+  // Next month
+  var nm1 = (mon + 1) % 12;
+  var nm3 = (mon + 3) % 12;
+  var nm6 = (mon + 6) % 12;
+
+  function monthRange(start, count) {
+    var r = [];
+    for (var i = 0; i < count; i++) r.push(((start + i) % 12) + 1);
+    return r;
+  }
+
+  return {
+    anytime: { label:'Anytime',       sub:'flexible dates',                           months:[] },
+    weekend: { label:'This Weekend',  sub:weekendSub,                                 months:[sat.getMonth()+1] },
+    month1:  { label:'Next Month',    sub:MONTHS[nm1] + ' ' + (nm1 < mon ? now.getFullYear()+1 : now.getFullYear()), months:[(nm1)+1] },
+    month3:  { label:'3 Months',      sub:MONTHS[(mon+1)%12]+'–'+MONTHS[nm3],         months:monthRange(mon+1, 3) },
+    month6:  { label:'6 Months',      sub:MONTHS[(mon+1)%12]+'–'+MONTHS[nm6],         months:monthRange(mon+1, 6) },
+  };
+}
+
+function buildTimingSection() {
+  var opts = computeTimingOptions();
+  var order = ['anytime','weekend','month1','month3','month6'];
+  var html = '';
+  order.forEach(function(k) {
+    var o = opts[k];
+    html += '<button class="timing-chip' + (k === 'anytime' ? ' active' : '') + '" '
+          + 'data-timing="' + k + '" onclick="selectTiming(this,\'' + k + '\')">'
+          + '<span class="tc-label">' + o.label + '</span>'
+          + '<span class="tc-sub">' + o.sub + '</span>'
+          + '</button>';
+  });
+  document.getElementById('timing-chips').innerHTML = html;
+}
+
+function selectTiming(btn, key) {
+  travelTiming = key;
+  document.querySelectorAll('.timing-chip').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  if (resultsShowing) debounced(runSearch);
+}
+
+function setScope(btn, key) {
+  travelScope = key;
+  document.querySelectorAll('.scope-btn').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  updateScopeNote();
+  if (resultsShowing) debounced(runSearch);
+}
+
+function updateScopeNote() {
+  var noteEl = document.getElementById('scope-note');
+  if (!noteEl) return;
+  var v = readForm();
+  if (travelScope === 'domestic' && v.home) {
+    var domestic = CITIES.filter(function(c){ return c.country === v.home.country; });
+    noteEl.textContent = domestic.length
+      ? 'Showing ' + domestic.length + ' destination' + (domestic.length === 1 ? '' : 's') + ' in ' + v.home.country + '.'
+      : 'No destinations in our list for ' + v.home.country + ' — try cross-country.';
+  } else {
+    noteEl.textContent = '';
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   DROPDOWN BUILD
+   ───────────────────────────────────────────────────────────── */
+(function buildDropdown() {
+  var seen = {}, all = [];
+  CITIES.concat(EXTRA_HOME_CITIES).forEach(function(c){
+    if (!seen[c.city]) { seen[c.city] = true; all.push(c); }
+  });
+  all.sort(function(a,b){ return a.city.localeCompare(b.city); });
+  var sel = document.getElementById('home-city');
+  all.forEach(function(c){
+    var opt = document.createElement('option');
+    opt.value = JSON.stringify({ lat:c.lat, lon:c.lon, city:c.city, country:c.country });
+    opt.textContent = c.city + ', ' + c.country;
+    sel.appendChild(opt);
+  });
+})();
+
+/* ─────────────────────────────────────────────────────────────
+   HELPERS
+   ───────────────────────────────────────────────────────────── */
+function bucketFor(d) { return d <= 2 ? 'Weekend' : d <= 5 ? 'Short trip' : 'Week+'; }
+
+function readForm() {
+  var raw = document.getElementById('home-city').value;
+  var checked = document.querySelector('input[name="style"]:checked');
+  return {
+    home:       raw ? JSON.parse(raw) : null,
+    savings:    parseFloat(document.getElementById('savings').value) || 0,
+    income:     parseFloat(document.getElementById('income').value)  || 0,
+    monthly:    parseFloat(document.getElementById('monthly').value) || 0,
+    allocation: 0.30,   // fixed at 30%; shown as recommendation, not a slider
+    days:       Math.max(1, parseInt(document.getElementById('days').value) || 7),
+    style:      checked ? checked.value : 'mid',
+    timing:     travelTiming,
+  };
+}
+
+function formReady(v) { return v.home !== null && v.savings > 0 && v.monthly >= 0; }
+
+function toUSD(local) { return local / (CURRENCY_RATES[homeCurrency] || 1); }
+function hc(usd)      { return isFinite(usd) ? fmtCurrency(usd, homeCurrency) : '—'; }
+function hcRange(lo,hi){ return (isFinite(lo) && isFinite(hi)) ? fmtCurrencyRange(lo, hi, homeCurrency) : '—'; }
+
+function dualMoney(usd) {
+  if (homeCurrency === 'USD') return fmtCurrency(usd, 'USD');
+  return hc(usd) + ' <span class="usd-note">(≈ ' + fmtCurrency(usd,'USD') + ')</span>';
+}
+function dualRange(lo,hi) {
+  if (homeCurrency === 'USD') return fmtCurrencyRange(lo,hi,'USD');
+  return hcRange(lo,hi) + ' <span class="usd-note">(≈ ' + fmtCurrencyRange(lo,hi,'USD') + ')</span>';
+}
+
+/* ─────────────────────────────────────────────────────────────
+   HOME CITY CHANGE → update currency UI
+   ───────────────────────────────────────────────────────────── */
+function onHomeCityChange() {
+  var raw = document.getElementById('home-city').value;
+  var scopeField = document.getElementById('scope-field');
+  if (!raw) {
+    homeCurrency = 'USD';
+    if (scopeField) scopeField.classList.remove('visible');
+  } else {
+    var parsed = JSON.parse(raw);
+    homeCurrency = currencyForCountry(parsed.country) || 'USD';
+    var flag = COUNTRY_FLAGS[parsed.country] || '🌍';
+    var meta = CURRENCIES[homeCurrency] || CURRENCIES['USD'];
+    document.getElementById('currency-flag').textContent = flag;
+    document.getElementById('currency-code').textContent = homeCurrency;
+    document.getElementById('currency-name').textContent = meta.name;
+
+    // Show scope filter only for non-European cities
+    if (scopeField) {
+      if (isEuropean(parsed.country)) {
+        scopeField.classList.remove('visible');
+        travelScope = 'anywhere'; // reset to default for European travellers
+        document.querySelectorAll('.scope-btn').forEach(function(b){
+          b.classList.toggle('active', b.textContent.indexOf('Cross-country') !== -1);
+        });
+      } else {
+        scopeField.classList.add('visible');
+        updateScopeNote();
+      }
+    }
+  }
+  var sym = (CURRENCIES[homeCurrency] || CURRENCIES['USD']).symbol;
+  ['sym-savings','sym-income','sym-monthly'].forEach(function(id){
+    document.getElementById(id).textContent = sym;
+  });
+  refreshPreview();
+}
+
+/* ─────────────────────────────────────────────────────────────
+   LIVE BUDGET PREVIEW
+   ───────────────────────────────────────────────────────────── */
+function refreshPreview() {
+  var v         = readForm();
+  var box       = document.getElementById('budget-preview');
+  var amountEl  = document.getElementById('bp-amount');
+  var formulaEl = document.getElementById('bp-formula');
+  var btn       = document.getElementById('find-btn');
+  var recDetail = document.getElementById('alloc-range-detail');
+
+  if (!v.savings) {
+    box.className       = 'budget-preview';
+    amountEl.textContent   = 'Fill in your numbers above';
+    formulaEl.innerHTML    = '';
+    recDetail.textContent  = '';
+    btn.disabled = true;
+    return;
+  }
+
+  var savingsUSD = toUSD(v.savings);
+  var incomeUSD  = toUSD(v.income);
+  var monthlyUSD = toUSD(v.monthly);
+
+  var r      = calculateTravelBudget(savingsUSD, incomeUSD, monthlyUSD, v.allocation, 3);
+  var budget = r.travelBudget;
+  var sym    = (CURRENCIES[homeCurrency] || CURRENCIES['USD']).symbol;
+
+  // Update allocation recommendation with real numbers
+  if (r.effectiveSavings > 0) {
+    var lo20 = hc(r.effectiveSavings * 0.20);
+    var hi40 = hc(r.effectiveSavings * 0.40);
+    recDetail.innerHTML = ' At your level: <strong class="alloc-range-num">' + lo20 + '</strong>'
+                        + ' – <strong class="alloc-range-num">' + hi40 + '</strong>.';
+  }
+
+  // Build step-by-step formula
+  var lines = [];
+  if (v.income > 0) {
+    var netPerMonth = incomeUSD - monthlyUSD;
+    var netSign = netPerMonth >= 0 ? '+' : '';
+    lines.push('Current savings: <b>' + hc(savingsUSD) + '</b>');
+    lines.push('Monthly surplus: ' + hc(incomeUSD) + ' income − ' + hc(monthlyUSD) + ' expenses = <b>' + netSign + hc(netPerMonth) + '/month</b>');
+    lines.push('× 3 months = <b>' + netSign + hc(r.threeMonthNet) + '</b> added to savings');
+    lines.push('Effective savings: ' + hc(savingsUSD) + ' + ' + hc(r.threeMonthNet) + ' = <b>' + hc(r.effectiveSavings) + '</b>');
+    lines.push(hc(r.effectiveSavings) + ' × 30% − ' + hc(r.emergencyBuffer) + ' (3-month buffer) = <b>' + hc(budget) + '</b>');
+  } else {
+    lines.push('Using current savings only (monthly income = 0)');
+    lines.push(hc(savingsUSD) + ' × 30% − ' + hc(r.emergencyBuffer) + ' (3-month emergency buffer) = <b>' + hc(budget) + '</b>');
+  }
+  formulaEl.innerHTML = lines.join('<br>');
+
+  if (budget <= 0) {
+    box.className          = 'budget-preview bp--danger';
+    amountEl.textContent   = 'Budget is negative — your buffer exceeds 30% of savings';
+    btn.disabled = true;
+  } else if (budget < 800) {
+    box.className          = 'budget-preview bp--warn';
+    amountEl.innerHTML     = dualMoney(budget);
+    btn.disabled = !formReady(v);
+  } else {
+    box.className          = 'budget-preview bp--good';
+    amountEl.innerHTML     = dualMoney(budget);
+    btn.disabled = !formReady(v);
+  }
+
+  if (resultsShowing && formReady(v) && budget > 0) {
+    debounced(runSearch);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   EVENT LISTENERS
+   ───────────────────────────────────────────────────────────── */
+var debTimer;
+function debounced(fn) { clearTimeout(debTimer); debTimer = setTimeout(fn, 260); }
+
+document.getElementById('home-city').addEventListener('change', onHomeCityChange);
+
+['savings','income','monthly'].forEach(function(id){
+  document.getElementById(id).addEventListener('input', function(){ debounced(refreshPreview); });
+});
+
+document.getElementById('days').addEventListener('input', function(){
+  var d = Math.max(1, parseInt(this.value) || 1);
+  document.getElementById('days-bucket').textContent = bucketFor(d);
+  debounced(refreshPreview);
+});
+
+document.querySelectorAll('input[name="style"]').forEach(function(r){
+  r.addEventListener('change', function(){ debounced(refreshPreview); });
+});
+
+/* ─────────────────────────────────────────────────────────────
+   MAIN SEARCH
+   ───────────────────────────────────────────────────────────── */
+function runSearch() {
+  var v = readForm();
+  if (!formReady(v)) return;
+
+  var savingsUSD = toUSD(v.savings);
+  var incomeUSD  = toUSD(v.income);
+  var monthlyUSD = toUSD(v.monthly);
+
+  var br = calculateTravelBudget(savingsUSD, incomeUSD, monthlyUSD, v.allocation, 3);
+  if (br.travelBudget <= 0) return;
+
+  var cityPool = (travelScope === 'domestic')
+    ? CITIES.filter(function(c){ return c.country === v.home.country; })
+    : CITIES;
+
+  var found = findAffordableDestinations(
+    v.home.lat, v.home.lon,
+    br.travelBudget,
+    v.days, v.style,
+    cityPool
+  );
+
+  lastResults = found;
+  lastV       = v;
+  lastBr      = br;
+  shownCount  = 9;
+
+  renderResults(v, br, found);
+
+  // Switch to results page
+  document.getElementById('page-landing').classList.add('hidden');
+  document.getElementById('page-results').classList.remove('hidden');
+  resultsShowing = true;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function goBackToForm() {
+  document.getElementById('page-results').classList.add('hidden');
+  document.getElementById('page-landing').classList.remove('hidden');
+  resultsShowing = false;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function loadMoreCities() {
+  shownCount += 9;
+  renderResults(lastV, lastBr, lastResults);
+  // keep scroll position — user is reading the new cards
+}
+
+/* ─────────────────────────────────────────────────────────────
+   RENDER RESULTS
+   ───────────────────────────────────────────────────────────── */
+var STYLE_LABELS = { budget:'Budget 🎒', mid:'Mid-range 🏨', lavish:'Lavish 💎' };
+var TIMING_LABELS = { anytime:'Any time', weekend:'This Weekend', month1:'Next Month', month3:'3 Months Out', month6:'6 Months Out' };
+
+function renderResults(v, br, found) {
+  var bucket = bucketFor(v.days);
+  var html   = '';
+
+  // Summary card
+  html += '<div class="summary-card">'
+        +   '<div class="summary-top">'
+        +     '<div>'
+        +       '<div class="summary-label">Your travel budget (30% of savings)</div>'
+        +       '<div class="summary-amount">' + hc(br.travelBudget) + '</div>'
+        +       (homeCurrency !== 'USD'
+                  ? '<div class="summary-note">≈ ' + fmtCurrency(br.travelBudget,'USD') + ' USD</div>'
+                  : '')
+        +     '</div>'
+        +     '<div class="summary-right">'
+        +       '<div class="summary-formula">'
+        +         hc(br.effectiveSavings) + ' effective savings × 30% − '
+        +         hc(br.emergencyBuffer) + ' buffer'
+        +       '</div>'
+        +       '<div class="summary-chips">'
+        +         chip(v.days + ' days') + chip(bucket)
+        +         + chip(STYLE_LABELS[v.style]) + chip('From ' + v.home.city)
+        +         + chip(TIMING_LABELS[v.timing] || 'Anytime')
+        +         + chip(homeCurrency)
+        +       '</div>'
+        +     '</div>'
+        +   '</div>'
+        + '</div>';
+
+  if (found.length === 0) {
+    html += renderEmpty(v, br);
+    document.getElementById('results-content').innerHTML = html;
+    return;
+  }
+
+  html += '<div class="results-hdr">'
+        +   '<h2 class="results-count">' + found.length
+        +     ' destination' + (found.length === 1 ? '' : 's') + ' within budget'
+        +   '</h2>'
+        +   '<p class="results-sub">Sorted by best value · '
+        +     bucket + ' · ' + v.days + ' day' + (v.days === 1 ? '' : 's')
+        +     ' · ' + STYLE_LABELS[v.style] + ' · Click any card for full details'
+        +   '</p>'
+        + '</div>';
+
+  var visible = found.slice(0, shownCount);
+  html += '<div class="cards-list">';
+  visible.forEach(function(d, i) { html += renderCard(d, v, i); });
+  html += '</div>';
+
+  if (found.length > shownCount) {
+    var remaining = found.length - shownCount;
+    html += '<div class="load-more-wrap">'
+          +   '<button class="load-more-btn" onclick="loadMoreCities()">'
+          +     'Show ' + remaining + ' more destination' + (remaining === 1 ? '' : 's') + ' →'
+          +   '</button>'
+          + '</div>';
+  }
+
+  document.getElementById('results-content').innerHTML = html;
+}
+
+function renderCard(d, v, i) {
+  var noFlight   = d.distanceKm < 10;
+  var destCur    = currencyForCountry(d.country);
+  var destMeta   = CURRENCIES[destCur] || CURRENCIES['USD'];
+  var showDestCur = destCur !== 'USD' && destCur !== homeCurrency;
+  var isBest     = i === 0;
+
+  function catRow(icon, label, dailyUSD) {
+    var total = dailyUSD * v.days;
+    return '<div class="dc-cat">'
+      + '<span class="dc-cat-icon">' + icon + '</span>'
+      + '<span class="dc-cat-name">' + label + '</span>'
+      + '<span class="dc-cat-day">' + hc(dailyUSD) + '/day'
+      + (homeCurrency !== 'USD' ? ' <span class="usd-note">($' + Math.round(dailyUSD) + ')</span>' : '')
+      + (showDestCur ? '<span class="dest-cur-note">' + fmtCurrency(dailyUSD,destCur) + ' ' + destMeta.symbol + '/day</span>' : '')
+      + '</span>'
+      + '<span class="dc-cat-total">' + hc(total) + '</span>'
+      + '</div>';
+  }
+
+  return '<div class="dest-card' + (isBest ? ' dest-card--best' : '') + '" onclick="openCityPopup(' + i + ')" title="Click for full details">'
+    + '<div class="dc-head">'
+    +   '<div class="dc-left">'
+    +     (isBest ? '<span class="best-badge">★ Best value</span>' : '')
+    +     '<div class="dc-name">' + d.city + '<span class="dc-country">, ' + d.country + '</span></div>'
+    +     '<div class="dc-dist">'
+    +       (noFlight ? '✅ No flight needed' : '✈ ' + d.distanceKm.toLocaleString() + ' km away')
+    +       (showDestCur ? ' · <span class="dest-cur-badge">' + destCur + ' ' + destMeta.symbol + '</span>' : '')
+    +     '</div>'
+    +     '<div class="dc-click-hint">Tap for full details →</div>'
+    +   '</div>'
+    +   '<div class="dc-total">'
+    +     '<div class="dc-total-lbl">Total estimate</div>'
+    +     '<div class="dc-total-val">' + hcRange(d.totalLow, d.totalHigh) + '</div>'
+    +     (homeCurrency !== 'USD'
+            ? '<div class="dc-total-usd">≈ ' + fmtCurrencyRange(d.totalLow, d.totalHigh, 'USD') + '</div>'
+            : '')
+    +   '</div>'
+    + '</div>'
+    + '<div class="dc-body">'
+    +   '<div class="dc-row dc-row--flight">'
+    +     '<span class="dc-row-label">✈ Flight (estimate)</span>'
+    +     '<span class="dc-row-val">'
+    +       (noFlight ? 'No flight cost' : dualRange(d.flightLow, d.flightHigh))
+    +     '</span>'
+    +   '</div>'
+    +   '<div class="dc-cats">'
+    +     catRow('🍽','Meals (3×/day)', d.dailyMeals)
+    +     catRow('🛏','Accommodation',  d.dailyAccomm)
+    +     catRow('🎭','Activities',     d.dailyActivities)
+    +     catRow('🛍','Shopping & misc',d.dailyShopping)
+    +   '</div>'
+    +   '<div class="dc-math">'
+    +     (noFlight ? '' : 'Flight ~' + hcRange(d.flightLow, d.flightHigh) + ' + ')
+    +     hc(d.dailyLandCost) + '/day × ' + v.days + ' days'
+    +     (showDestCur ? ' · local spend ≈ ' + fmtCurrency(d.dailyLandCost, destCur) + ' ' + destMeta.symbol + '/day' : '')
+    +   '</div>'
+    + '</div>'
+  + '</div>';
+}
+
+/* ─────────────────────────────────────────────────────────────
+   EMPTY STATE
+   ───────────────────────────────────────────────────────────── */
+function renderEmpty(v, br) {
+  var pool     = (travelScope === 'domestic') ? CITIES.filter(function(c){ return c.country === v.home.country; }) : CITIES;
+  var all      = findAffordableDestinations(v.home.lat, v.home.lon, 1e9, v.days, v.style, pool);
+  var cheapest = all[0];
+  var tip = '';
+  if (cheapest) {
+    var gap = cheapest.totalMid - br.travelBudget;
+    tip = '<p class="empty-closest">Closest match: <strong>' + cheapest.city + ', ' + cheapest.country
+        + '</strong> (~' + hc(cheapest.totalMid) + ') — you\'re about <strong>' + hc(gap) + ' short</strong>.</p>';
+  }
+  tip += '<p class="empty-tips-title">Ways to make it work:</p>'
+       + '<ul class="tip-list">'
+       + '<li>Travel for fewer days</li>'
+       + (v.style !== 'budget' ? '<li>Switch to Budget travel style (×0.8 costs)</li>' : '')
+       + (travelScope === 'domestic' ? '<li>Switch to Cross-country to see international destinations</li>' : '')
+       + '<li>Add more savings to your plan</li>'
+       + '<li>If you have income, the 3-month surplus boosts your effective budget</li>'
+       + '</ul>';
+  return '<div class="empty-state">'
+       +   '<div class="empty-icon">🌍</div>'
+       +   '<h3>No destinations fit your budget for ' + v.days + ' day' + (v.days===1?'':'s') + '</h3>'
+       +   tip
+       + '</div>';
+}
+
+function chip(text) { return '<span class="chip">' + text + '</span>'; }
+
+/* ─────────────────────────────────────────────────────────────
+   POPUP MODAL
+   ───────────────────────────────────────────────────────────── */
+function openCityPopup(i) {
+  var d = lastResults[i];
+  var v = lastV;
+  if (!d || !v) return;
+
+  var info    = CITY_INFO[d.city] || {};
+  var noFlight = d.distanceKm < 10;
+  var destCur  = currencyForCountry(d.country);
+  var destMeta = CURRENCIES[destCur] || CURRENCIES['USD'];
+  var showDest = destCur !== 'USD' && destCur !== homeCurrency;
+  var flag     = info.flag || COUNTRY_FLAGS[d.country] || '🏳';
+
+  // Seasonal advice based on timing selection
+  var timingOpts  = computeTimingOptions();
+  var timingData  = timingOpts[v.timing];
+  var seasonBlock = '';
+  if (timingData && timingData.months.length > 0 && info.good_months) {
+    var overlap = timingData.months.some(function(m){ return info.good_months.indexOf(m) !== -1; });
+    var statusCls = overlap ? 'good' : 'warn';
+    var statusMsg = overlap
+      ? '✅ ' + timingData.label + ' is a great time to visit ' + d.city + '!'
+      : '⚠️ ' + timingData.label + ' may not be ideal — check the weather notes below before booking.';
+    seasonBlock = '<div class="season-status ' + statusCls + '">' + statusMsg + '</div>';
+  } else {
+    seasonBlock = '<div class="season-status neutral">📅 Pick a travel window above for personalised timing advice.</div>';
+  }
+
+  // Build popup HTML
+  var html = '';
+
+  // Header
+  html += '<div class="modal-header">'
+        +   '<div class="modal-city-name">' + flag + ' ' + d.city + '</div>'
+        +   '<div class="modal-city-sub">' + d.country
+        +     (noFlight ? ' · No flight needed from ' + v.home.city : ' · ' + d.distanceKm.toLocaleString() + ' km from ' + v.home.city)
+        +   '</div>'
+        +   '<div class="modal-total-bar">'
+        +     '<div class="mtb-item"><span class="mtb-label">Total estimate</span><span class="mtb-val">' + hcRange(d.totalLow, d.totalHigh) + '</span></div>'
+        +     (homeCurrency !== 'USD' ? '<div class="mtb-item"><span class="mtb-label">In USD</span><span class="mtb-val">' + fmtCurrencyRange(d.totalLow, d.totalHigh, 'USD') + '</span></div>' : '')
+        +     '<div class="mtb-item"><span class="mtb-label">For</span><span class="mtb-val">' + v.days + ' days · ' + STYLE_LABELS[v.style] + '</span></div>'
+        +   '</div>'
+        + '</div>';
+
+  // Seasonal advice
+  html += '<div class="modal-section">'
+        +   '<div class="modal-section-title">📅 Seasonal Advice</div>'
+        +   seasonBlock
+        +   '<div class="season-row">'
+        +     '<div class="season-item"><div class="season-item-label">Best time to visit</div><div class="season-item-val">' + (info.best || 'See weather notes') + '</div></div>'
+        +     '<div class="season-item"><div class="season-item-label">Consider avoiding</div><div class="season-item-val">' + (info.avoid || 'No major concerns') + '</div></div>'
+        +   '</div>'
+        +   '<div style="margin-top:10px;font-size:0.83rem;color:var(--text-md);line-height:1.55;">' + (info.weather || '') + '</div>'
+        + '</div>';
+
+  // Flight details
+  if (!noFlight) {
+    html += '<div class="modal-section">'
+          +   '<div class="modal-section-title">✈ Flight Details</div>'
+          +   '<div class="popup-breakdown">'
+          +     '<div class="pb-row"><span class="pb-row-label">Distance (straight-line)<span class="pb-sub">Haversine formula — actual routes may differ</span></span><span class="pb-row-val">' + d.distanceKm.toLocaleString() + ' km</span></div>'
+          +     '<div class="pb-row"><span class="pb-row-label">Estimated flight cost range<span class="pb-sub">Based on distance tier × cost-per-km, ±20%</span></span><span class="pb-row-val">' + dualRange(d.flightLow, d.flightHigh) + '</span></div>'
+          +   '</div>'
+          + '</div>';
+  }
+
+  // Cost breakdown
+  html += '<div class="modal-section">'
+        +   '<div class="modal-section-title">💰 Full Cost Breakdown</div>'
+        +   '<div class="popup-breakdown">';
+
+  function pbRow(label, sub, dailyUSD) {
+    var total = dailyUSD * v.days;
+    return '<div class="pb-row">'
+         +   '<span class="pb-row-label">' + label + '<span class="pb-sub">' + hc(dailyUSD) + '/day × ' + v.days + ' days'
+         +     (showDest ? ' · ' + fmtCurrency(dailyUSD, destCur) + ' ' + destMeta.symbol + '/day local' : '')
+         +   '</span></span>'
+         +   '<span class="pb-row-val">' + hc(total) + '</span>'
+         + '</div>';
+  }
+
+  html += pbRow('🍽 Meals (3 meals/day)', '', d.dailyMeals);
+  html += pbRow('🛏 Accommodation', '', d.dailyAccomm);
+  html += pbRow('🎭 Activities & experiences', '', d.dailyActivities);
+  html += pbRow('🛍 Shopping, drinks & misc', '', d.dailyShopping);
+
+  var landTotal = d.dailyLandCost * v.days;
+  html += '<div class="pb-row"><span class="pb-row-label">Land total (' + v.days + ' days)</span><span class="pb-row-val">' + hc(landTotal) + '</span></div>';
+
+  if (!noFlight) {
+    html += '<div class="pb-row"><span class="pb-row-label">✈ Flight (midpoint estimate)</span><span class="pb-row-val">' + hc((d.flightLow + d.flightHigh)/2) + '</span></div>';
+  }
+
+  html += '<div class="pb-row pb-row--total">'
+        +   '<span class="pb-row-label">Total estimate range</span>'
+        +   '<span class="pb-row-val">' + hcRange(d.totalLow, d.totalHigh) + '</span>'
+        + '</div>';
+  html += '</div></div>';
+
+  // Highlights
+  if (info.highlights && info.highlights.length) {
+    html += '<div class="modal-section">'
+          +   '<div class="modal-section-title">🏛 Top Highlights</div>'
+          +   '<ul class="popup-list">';
+    info.highlights.forEach(function(h){ html += '<li>' + h + '</li>'; });
+    html += '</ul></div>';
+  }
+
+  // Budget tips
+  if (info.tips && info.tips.length) {
+    html += '<div class="modal-section">'
+          +   '<div class="modal-section-title">💡 Budget Tips</div>'
+          +   '<ul class="popup-list tips">';
+    info.tips.forEach(function(t){ html += '<li>' + t + '</li>'; });
+    html += '</ul></div>';
+  }
+
+  // Transport & neighbourhood accommodation info
+  if (info.transport || info.acco_note) {
+    html += '<div class="modal-section">'
+          +   '<div class="modal-section-title">🚇 Getting Around & Where to Stay</div>'
+          +   '<div class="popup-info-grid">';
+    if (info.transport) {
+      html += '<div class="popup-info-card">'
+            +   '<div class="popup-info-card-title">🚌 Public Transport</div>'
+            +   '<div class="popup-info-card-body">' + info.transport + '</div>'
+            + '</div>';
+    }
+    if (info.acco_note) {
+      html += '<div class="popup-info-card">'
+            +   '<div class="popup-info-card-title">🏘 Accommodation by Area</div>'
+            +   '<div class="popup-info-card-body">' + info.acco_note + '</div>'
+            + '</div>';
+    }
+    html += '</div></div>';
+  }
+
+  // Booking links
+  var flightsUrl  = 'https://www.google.com/travel/flights?q=Flights+from+'
+                  + encodeURIComponent(v.home.city) + '+to+' + encodeURIComponent(d.city);
+  var hotelUrl    = 'https://www.booking.com/searchresults.html?ss=' + encodeURIComponent(d.city);
+  var hostelUrl   = 'https://www.hostelworld.com/search?search_keywords='
+                  + encodeURIComponent(d.city + ', ' + d.country) + '&search_type=city';
+
+  html += '<div class="modal-section">'
+        +   '<div class="modal-section-title">🔗 Book Your Trip</div>'
+        +   '<div class="booking-links">'
+        +     '<a class="booking-link booking-link--flights" href="' + flightsUrl + '" target="_blank" rel="noopener">'
+        +       '✈ Google Flights'
+        +     '</a>'
+        +     '<a class="booking-link booking-link--hotel" href="' + hotelUrl + '" target="_blank" rel="noopener">'
+        +       '🏨 Hotels on Booking.com'
+        +     '</a>'
+        +     '<a class="booking-link booking-link--hostel" href="' + hostelUrl + '" target="_blank" rel="noopener">'
+        +       '🛏 Hostels on Hostelworld'
+        +     '</a>'
+        +   '</div>'
+        +   '<p class="booking-note">Links open the destination pre-filled. Flight sorting — select "Price" in Google Flights for cheapest options.</p>'
+        + '</div>';
+
+  document.getElementById('modal-content').innerHTML = html;
+  document.getElementById('modal-overlay').classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePopup() {
+  document.getElementById('modal-overlay').classList.add('hidden');
+  document.body.style.overflow = '';
+}
+
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('modal-overlay')) closePopup();
+}
+
+document.addEventListener('keydown', function(e){
+  if (e.key === 'Escape') closePopup();
+});
+
+/* ─────────────────────────────────────────────────────────────
+   INIT
+   ───────────────────────────────────────────────────────────── */
+buildTimingSection();
+refreshPreview();
+</script>
+</body>
+</html>
